@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="{{app()->currentLocale()}}">
+<head>
+	<base href="{{ url('/') }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Cache-control" content="public">
+	
+	<link rel="canonical" href="{{ url()->full() }}" />
+	{!! SEOMeta::generate() !!}
+	{!! OpenGraph::generate() !!}
+	{!! Twitter::generate() !!}
+	{!! JsonLd::generate() !!}
+	
+	
+	<link rel="icon" href="/assets/favicon.png" type="image/x-icon"/>
+
+	<link rel="stylesheet" href="assets/css/plugins/fontawesome-5.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets/css/plugins/aos.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/hover-revel.css">
+    <link rel="stylesheet" href="assets/css/plugins/timepickers.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+	
+	@stack('links')
+	{!! setting('site.header_libs') !!}
+	@stack('styles')
+</head>
+<body>
+	<header class="heder-two header--sticky">
+        <div class="header-two-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-main-wrapper">
+                        <div class="logo-area">
+                            <a href="{{route('home')}}" class="logo">
+                                <img src="/assets/logo.png" alt="{{setting('site.title')}}">
+                            </a>
+                        </div>
+                        <div class="rts-header-right">
+                            <div class="menu-area" id="menu-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                                    <rect width="18" height="2" fill="#0C0A0A" />
+                                    <rect y="7" width="18" height="2" fill="#0C0A0A" />
+                                    <rect y="14" width="18" height="2" fill="#0C0A0A" />
+                                </svg>
+                            </div>
+                            <div class="top">
+                                <div class="start-top">
+                                    <div class="icon"><i class="fa-sharp fa-solid fa-bolt"></i></div>
+                                    <p>Yenilikçi, güvenilir, kaliteli</p>
+                                </div>
+                                <div class="end-top">
+                                    <div class="single-info">
+                                        <div class="icon"><i class="fa-thin fa-location-dot"></i> </div>
+                                        <p>{{$sharedContent['Contact']->address1}}</p>
+                                    </div>
+                                    <div class="single-info">
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <a href="mailto:{{$sharedContent['Contact']->email1}}">{{$sharedContent['Contact']->email1}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="main-nav-desk nav-area">
+                                    <nav>
+                                        {{ menu('Header', 'menus.header') }}
+                                    </nav>
+                                </div>
+                                <div class="right-area">
+                                    <div class="icon-area">
+                                        <div class="search" id="search">
+                                            <i class="fa-regular fa-magnifying-glass"></i>
+                                        </div>
+                                    </div>
+                                    <a href="tel:{{$sharedContent['Contact']->phone1}}" class="rts-btn btn-seconday btn-transparent">İletişime Geç <i class="fa-solid fa-arrow-up-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	<div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+        <div class="inner-main-wrapper-desk">
+			@if($sharedContent['About']->image)
+            <div class="thumbnail">
+                <img src="{{Voyager::image($sharedContent['About']->image)}}" alt="elevate">
+            </div>
+			@endif
+            <div class="inner-content">
+                <h1 class="title">{{setting('site.title')}}</h1>
+                <p class="disc">{{$sharedContent['About']->short_about}}</p>
+                <div class="footer">
+                    <div class="h4 title">Desteğe mi ihtiyacınız var?</div>
+                    <a href="tel:{{$sharedContent['Contact']->phone1}}" class="rts-btn btn-seconday">İletişime Geç</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu d-block d-xl-none">
+            <nav class="nav-main mainmenu-nav mt--30">
+                {{ menu('Header', 'menus.header-mobile') }}
+            </nav>
+
+            <div class="social-wrapper-one">
+                <ul>
+					@if($sharedContent['Social']->instagram)
+                    <li>
+                        <a href="{{$sharedContent['Social']->instagram}}">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+					@endif
+					@if($sharedContent['Social']->facebook)
+                    <li>
+                        <a href="{{$sharedContent['Social']->facebook}}">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+					@endif
+					@if($sharedContent['Social']->twitter)
+                    <li>
+                        <a href="{{$sharedContent['Social']->twitter}}">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+					@endif
+					@if($sharedContent['Social']->youtube)
+                    <li>
+                        <a href="{{$sharedContent['Social']->youtube}}">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+					@endif
+					@if($sharedContent['Social']->linkedin)
+                    <li>
+                        <a href="{{$sharedContent['Social']->linkedin}}">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </li>
+					@endif
+                </ul>
+            </div>
+        </div>
+    </div>
+	@yield('content')
+	
+	<div class="rts-footer-two rts-section-gap2Top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-footer-wrapper-two">
+                        <div class="single-footer-wized-two logo-area" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                            <a href="{{route('home')}}" class="logo">
+                                <img src="/assets/logo-white.png" alt="{{setting('site.title')}}">
+                            </a>
+                            <p class="disc-f">{{ $sharedContent['About']->short_about }}</p>
+                            <div class="rts-social-wrapper-three">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+						{{ menu('Footer', 'menus.footer') }}
+                        <div class="single-footer-wized-two user-number" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
+                            <div class="user-number-wrapper mt--10">
+                                <div class="single-number">
+                                    <h2 class="title">Telefon Numaramız</h2>
+									@if($sharedContent['Contact']->phone1)
+                                    <div class="number mb-1">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <a href="tel:{{$sharedContent['Contact']->phone1}}">{{$sharedContent['Contact']->phone1}}</a>
+                                    </div>
+									@endif
+									@if($sharedContent['Contact']->phone2)
+                                    <div class="number mb-1">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <a href="tel:{{$sharedContent['Contact']->phone2}}">{{$sharedContent['Contact']->phone2}}</a>
+                                    </div>
+									@endif
+                                </div>
+                                <div class="single-number">
+                                    <h2 class="title">E-Posta Adresimiz</h2>
+									@if($sharedContent['Contact']->email1)
+                                    <div class="number mb-1">
+                                        <i class="fa-light fa-envelope"></i>
+                                        <a href="mailto:{{$sharedContent['Contact']->email1}}">{{$sharedContent['Contact']->email1}}</a>
+                                    </div>
+									@endif
+									@if($sharedContent['Contact']->email2)
+                                    <div class="number mb-1">
+                                        <i class="fa-light fa-envelope"></i>
+                                        <a href="mailto:{{$sharedContent['Contact']->email2}}">{{$sharedContent['Contact']->email2}}</a>
+                                    </div>
+									@endif
+                                </div>
+                                <div class="single-number">
+                                    <h2 class="title">{{$sharedContent['Contact']->contact1}}</h2>
+                                    <div class="number">
+                                        <i class="fa-light fa-location-dot"></i>
+                                        <a class="mt-dec" href="https://maps.app.goo.gl/{{$sharedContent['Contact']->address1}}">{{$sharedContent['Contact']->address1}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		{{ menu('Footer Alt Bar', 'menus.footer-alt') }}
+
+
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-footer-two text-start">
+                            <p class="disc">
+                                © {{date('Y')}} {{setting('site.title')}}. Tüm hakları saklıdır.
+                            </p>
+                        </div>
+                    </div>
+					<div class="col-lg-6">
+                        <div class="copyright-footer-two text-end">
+                            <p class="disc">
+                                Made with <i style="color: var(--color-primary);" class="fa fa-heart"></i> by <a target="_blank" style="color: #f2693e" href="https://bario.com.tr">Bario.</a> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+
+    <div class="cart-bar">
+        <div class="cart-header">
+            <h3 class="cart-heading">MY CART (3 ITEMS)</h3>
+            <div class="close-cart"><i class="fal fa-times"></i></div>
+        </div>
+        <div class="product-area">
+            <div class="product-item">
+                <div class="product-detail">
+                    <div class="product-thumb"><img src="assets/images/slider/image1.jpg" alt="product-thumb"></div>
+                    <div class="item-wrapper">
+                        <span class="product-name">Construct Map</span>
+                        <div class="item-wrapper">
+                            <span class="product-variation"><span class="color">Green /</span>
+                            <span class="size">XL</span></span>
+                        </div>
+                        <div class="item-wrapper">
+                            <span class="product-qnty">3 ×</span>
+                            <span class="product-price">$198.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-edit">
+                    <div class="quantity-edit">
+                        <button class="button"><i class="fal fa-minus minus"></i></button>
+                        <input type="text" class="input" value="3">
+                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                    </div>
+                    <div class="item-wrapper d-flex mr--5 align-items-center">
+                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-detail">
+                    <div class="product-thumb"><img src="assets/images/slider/image2.jpg" alt="product-thumb"></div>
+                    <div class="item-wrapper">
+                        <span class="product-name"> Bridge product</span>
+                        <div class="item-wrapper">
+                            <span class="product-variation"><span class="color">Green /</span>
+                            <span class="size">XL</span></span>
+                        </div>
+                        <div class="item-wrapper">
+                            <span class="product-qnty">2 ×</span>
+                            <span class="product-price">$88.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-edit">
+                    <div class="quantity-edit">
+                        <button class="button"><i class="fal fa-minus minus"></i></button>
+                        <input type="text" class="input" value="2">
+                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                    </div>
+                    <div class="item-wrapper d-flex mr--5 align-items-center">
+                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item last-child">
+                <div class="product-detail">
+                    <div class="product-thumb"><img src="assets/images/slider/image5.jpg" alt="product-thumb"></div>
+                    <div class="item-wrapper">
+                        <span class="product-name">Labour helmet</span>
+                        <div class="item-wrapper">
+                            <span class="product-variation"><span class="color">Green /</span>
+                            <span class="size">XL</span></span>
+                        </div>
+                        <div class="item-wrapper">
+                            <span class="product-qnty">1 ×</span>
+                            <span class="product-price">$289.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-edit">
+                    <div class="quantity-edit">
+                        <button class="button"><i class="fal fa-minus minus"></i></button>
+                        <input type="text" class="input" value="2">
+                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                    </div>
+                    <div class="item-wrapper d-flex mr--5 align-items-center">
+                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-bottom-area">
+            <span class="spend-shipping"><i class="fal fa-truck"></i> SPENT <span class="amount">$199.00</span> MORE
+            FOR FREE SHIPPING</span>
+            <span class="total-price">TOTAL: <span class="price">$556</span></span>
+            <a href="checkout.html" class="checkout-btn cart-btn">PROCEED TO CHECKOUT</a>
+            <a href="cart.html" class="view-btn cart-btn">VIEW CART</a>
+        </div>
+    </div>
+
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+	
+
+	<div id="anywhere-home" class=""></div>
+
+    <div id="elevate-load">
+        <div class="loader-wrapper">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+	@stack('modals')
+
+
+	<script src="assets/js/plugins/jquery.min.js"></script>
+    <script src="assets/js/vendor/jqueryui.js"></script>
+    <script src="assets/js/plugins/counter-up.js"></script>
+    <script src="assets/js/plugins/swiper.js"></script>
+    <script src="assets/js/vendor/twinmax.js"></script>
+    <script src="assets/js/vendor/split-text.js"></script>
+    <script src="assets/js/plugins/text-plugins.js"></script>
+    <script src="assets/js/plugins/metismenu.js"></script>
+    <script src="assets/js/vendor/waypoint.js"></script>
+    <script src="assets/js/vendor/waw.js"></script>
+    <script src="assets/js/vendor/magnific-popup.js"></script>
+    <script src="assets/js/plugins/aos.js"></script>
+    <script src="assets/js/plugins/jquery-ui.js"></script>
+    <script src="assets/js/plugins/jquery-timepicker.js"></script>
+    <script src="assets/js/vendor/sal.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/jquery-slideNav.js"></script>
+    <script src="assets/js/plugins/hover-revel.js"></script>
+    <script src="assets/js/plugins/contact-form.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/plugins/swip-img.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
+	<script>
+		lazyload();
+	</script>
+	@stack('scripts')
+	@stack('page_codes')
+</body>
+</html>

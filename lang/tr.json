@@ -1,0 +1,20 @@
+{
+    "preloader":"Yükleniyor...",
+    "copyright":"Tüm Hakları Saklıdır.",
+    "slogan":"",
+    "follow":"Takip Et:",
+    "read_more":"Devamını Oku",
+    "search":"Arama",
+    "search_placeholder":"Arama yapınız...",
+    "search_button":"Ara",
+    "pages.home":"Anasayfa",
+    "pages.about":"Hakkımızda",
+    "pages.contact":"İletişim",
+    "pages.products":"Ürünler",
+    "pages.product_group":"Kategoriler",
+    "pages.news":"Haberler",
+    "links.products":"urunler",
+    "links.product_group":"urun-gruplari",
+    "links.news":"haberler",
+    "links.contact":"iletisim"
+}
