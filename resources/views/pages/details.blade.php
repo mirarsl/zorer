@@ -13,15 +13,26 @@
 @endisset
 @endsection
 @section('content')
-<header class="page-header" @if($Meta->image) data-background="{{asset($Meta->image)}}" @elseif(isset($Meta->color)) style="background-color:{{$Meta->color}}" @endif data-stellar-background-ratio="0.7">
-	<div class="container">
-		<h1>{{$Page->getTranslatedAttribute('title')}}</h1>
-		<p>{{$Page->getTranslatedAttribute('hero') != '' ? $Page->getTranslatedAttribute('hero') : $Page->getTranslatedAttribute('spot')}}</p>
-		{!! Breadcrumbs::view('breadcrumbs::bootstrap5','page') !!}
-		{!! Breadcrumbs::view('breadcrumbs::json-ld','page') !!}
-	</div>
-	<div class="parallax-element" data-stellar-ratio="2"></div>
-</header>
+<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg_image" @if($Meta->image) style="background-image: url({{Voyager::image($Meta->image)}})" @elseif(isset($Meta->color)) style="background-color:{{$Meta->color}}" @endif>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner text-center">
+                    <h2 class="title">{{$Page->getTranslatedAttribute('title')}}</h2>
+                    @if($Page->getTranslatedAttribute('hero'))
+                    <p class="disc">{{$Page->getTranslatedAttribute('hero')}}</p>
+					@elseif($Page->getTranslatedAttribute('spot'))
+					<p class="disc">{{$Page->getTranslatedAttribute('spot')}}</p>
+					@else
+					<p class="disc"></p>
+                    @endif
+                    {!! Breadcrumbs::view('breadcrumbs.index','page') !!}
+                    {!! Breadcrumbs::view('breadcrumbs::json-ld','page') !!}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @yield('details')
 @yield('modules')
 @endsection

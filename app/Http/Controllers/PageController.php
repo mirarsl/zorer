@@ -110,7 +110,8 @@ class PageController extends Controller
     {
         $Page = Service::whereTranslation('slug','=', $request->slug, [app()->getLocale()],app()->getLocale() == 'tr' ? true:false)->first();
         if (empty($Page)) abort(404);
-        $Meta = Page::where('slug', 'urun-gruplari')->first();
+        $Meta = Page::where('slug', 'urunler')->first();
+        $Other = Service::active()->order()->limit(3)->get();
         $Route = 'product';
         
         SEOTools::setTitle($Page->getTranslatedAttribute('meta_title') != '' ? $Page->getTranslatedAttribute('meta_title') : $Page->getTranslatedAttribute('title'));
@@ -131,12 +132,11 @@ class PageController extends Controller
         }
         Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page) {
             $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
-            $trail->push(__('pages.product_group'), route('page', __('links.product_group')));
-            $trail->push($Page->getCategory->getTranslatedAttribute('title'), route('product_group', $Page->getCategory->getTranslatedAttribute('slug')));
+            $trail->push(__('pages.products'), route('page', __('links.products')));
             $trail->push($Page->getTranslatedAttribute('title'), route('product', $Page->getTranslatedAttribute('slug')));
         });
         
-        return view('details.product-details',compact('Page','Meta','Route'));
+        return view('details.product-details',compact('Page','Meta','Route','Other'));
     }
     
     
@@ -228,7 +228,7 @@ class PageController extends Controller
             return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Formda eksik bilgi bulunmaktadır')->withErrors($validator)->withInput(request()->all());
         }
 
-        $score = RecaptchaV3::verify($request->get('g-recaptcha-response'), 'contact');
+        $score = RecaptchaV3::verify($request->get('g-recaptcha-response'), 'hr');
         if($score < 0.5){
             return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Lütfen robot olmadığınızı doğrulayın');
         }

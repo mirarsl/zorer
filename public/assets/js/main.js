@@ -449,9 +449,10 @@
 
       $(document).ready(function () {
         var swiper = new Swiper(".swiper-vision", {
-          direction: "horizontal",
           effect: "slide",
+          direction: "vertical",
           parallax: true,
+          spaceBetween: 30,
           speed: 1600,
           slidesPerView: 1,
           spaceBetween: 0,
@@ -463,7 +464,6 @@
             enabled: true,
             onlyInViewport: true
           },
-          loopFillGroupWithBlank: true,
           pagination: {
             el: ".swiper-pagination",
             clickable: true,

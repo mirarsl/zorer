@@ -73,7 +73,6 @@ body {
   color: var(--color-body);
   font-weight: var(--p-regular);
   position: relative;
-  overflow-x: hidden;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   body {
@@ -9687,7 +9686,7 @@ input[type=checkbox] ~ label::after,
 input[type=radio] ~ label::after {
   content: " ";
   position: absolute;
-  top: 16%;
+  top: 10%;
   left: 2px;
   width: 10px;
   height: 6px;
@@ -9721,6 +9720,7 @@ input[type=radio] ~ label::after {
 
 .form-group {
   margin-bottom: 20px;
+  position: relative;
 }
 .form-group label {
   margin-bottom: 6px;
@@ -10719,7 +10719,6 @@ textarea:-ms-input-placeholder {
 body {
   scroll-behavior: auto;
   background: #ffffff;
-  overflow-x: hidden;
 }
 
 /*------------------------
@@ -18207,16 +18206,15 @@ edit .quantity-edit button {
 }
 
 .thumbnail-area-about {
-  position: relative;
+  position: sticky;
+  top: 100px;
 }
 .thumbnail-area-about .rts-btn.btn-primary {
-  border: 7px solid #fff;
   position: absolute;
-  bottom: -65px;
-  padding: 42px 64px;
+  bottom: 0;
   font-weight: 500;
-  min-width: max-content;
   font-size: 30px;
+  right: 0;
 }
 @media only screen and (max-width: 1199px) {
   .thumbnail-area-about .rts-btn.btn-primary {
@@ -18310,8 +18308,7 @@ edit .quantity-edit button {
   line-height: 1;
 }
 .rts-about-area-about.career .sustain-inner {
-  background: url(../images/service/25.jpg);
-  padding: 250px 0;
+  padding: 200px 0;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18324,11 +18321,22 @@ edit .quantity-edit button {
     padding: 60px 0 120px 0;
   }
 }
+.rts-about-area-about.vision .vision-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.035;
+}
 .rts-about-area-about.vision .container .vision-wrapper {
   position: relative;
 }
 .rts-about-area-about.vision .container .vision-wrapper .swiper {
   overflow: hidden;
+  height: 400px;
 }
 .rts-about-area-about.vision .container .vision-wrapper .swiper .swiper-wrapper {
   position: relative;
@@ -19845,8 +19853,9 @@ edit .quantity-edit button {
 .breadcrumb-inner .title {
   font-weight: 600;
   font-size: 72px;
-  line-height: 110px;
-  color: #0C0A0A;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 0;
 }
 @media only screen and (max-width: 767px) {
   .breadcrumb-inner .title {
@@ -19854,26 +19863,42 @@ edit .quantity-edit button {
     margin-bottom: 0;
   }
 }
+.breadcrumb-inner p {
+  color: #fff;
+}
 .breadcrumb-inner .meta {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: -20px;
 }
-.breadcrumb-inner .meta a {
+.breadcrumb-inner .meta a,
+.breadcrumb-inner .meta span {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #0C0A0A;
+  color: #fff;
   text-transform: uppercase;
   font-family: var(--font-primary);
   margin: 0 2px;
   transition: 0.3s;
 }
-.breadcrumb-inner .meta a.next {
+.breadcrumb-inner .meta .prev:after {
+  content: "/";
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+  margin: 0 2px;
+  transition: 0.3s;
+}
+.breadcrumb-inner .meta .next {
   position: relative;
 }
-.breadcrumb-inner .meta a.next::after {
+.breadcrumb-inner .meta .next::after {
   position: absolute;
   content: "";
   bottom: 0;
@@ -23723,6 +23748,7 @@ body.index-nine .single-case-wrapper {
   color: var(--color-primary);
   transition: 0.3s;
 }
+.rts-single-wized .single-categories li.active a,
 .rts-single-wized .single-categories li a:hover {
   background: var(--color-primary);
   transform: translateY(-5px) scale(1.03);
@@ -26754,6 +26780,13 @@ body.index-nine .single-case-wrapper {
   line-height: 26px;
   margin-bottom: 20px;
 }
+.service-detials-step-3 .disc.table table{
+  width: 100%;
+  overflow: auto;
+}
+.service-detials-step-3 .disc.table table tr td{
+  border: 1px solid #e4e4e4;
+}
 .service-detials-step-3 .single-banifits {
   margin-bottom: 10px;
 }
@@ -26765,8 +26798,13 @@ body.index-nine .single-case-wrapper {
 .bg-appoinment {
   background: #F5F5F5;
 }
+.bg-appoinment .thumbnail{
+  height: 100%;
+}
 .bg-appoinment .thumbnail img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .appoinment-inner-content-wrapper {
@@ -26797,7 +26835,9 @@ body.index-nine .single-case-wrapper {
   text-transform: uppercase;
   color: #0C0A0A;
 }
-
+form.appoinment-form .form-control{
+  height: 60px !important;
+}
 form.appoinment-form .input-half-wrapper {
   display: flex;
   align-items: center;
@@ -26807,9 +26847,6 @@ form.appoinment-form .input-half-wrapper {
 form.appoinment-form .input-half-wrapper .single-input {
   display: block;
   width: 50%;
-}
-form.appoinment-form .input-half-wrapper .single-input.phone {
-  margin-top: 25px;
 }
 form.appoinment-form .input-half-wrapper .single-input.file {
   width: 100%;
@@ -26822,7 +26859,6 @@ form.appoinment-form .input-half-wrapper .single-input input {
   height: 60px;
   background: #FFFFFF;
   display: block;
-  padding: 0 30px;
   border: 1px solid transparent;
 }
 form.appoinment-form .input-half-wrapper .single-input input:focus {
@@ -26831,9 +26867,11 @@ form.appoinment-form .input-half-wrapper .single-input input:focus {
 form.appoinment-form .form-control {
   background: #ffffff;
   border: none;
-  height: 120px;
   padding: 20px;
   font-size: 16px;
+}
+form.appoinment-form textarea.form-control{
+  height: 120px !important;
 }
 form.appoinment-form .form-control:focus {
   border: none;
@@ -26901,6 +26939,11 @@ form.appoinment-form select option {
 
 .about-a-p-cont {
   padding-left: 65px;
+}
+.about-a-p-cont.text-right {
+  text-align: right;
+  padding-right: 65px;
+  padding-left: 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .about-a-p-cont {

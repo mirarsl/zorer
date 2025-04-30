@@ -1,14 +1,22 @@
 @extends('layout.master')
 @section('content')
-<header class="page-header" @if($Page->image) data-background="{{asset($Page->image)}}" @elseif(isset($Page->color)) style="background-color:{{$Page->color}}" @endif data-stellar-background-ratio="0.7">
+<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg_image" @if($Page->image) style="background-image: url({{Voyager::image($Page->image)}})" @elseif(isset($Page->color)) style="background-color:{{$Page->color}}" @endif>
     <div class="container">
-        <h1>{{$Page->getTranslatedAttribute('title')}}</h1>
-        <p>{{$Page->getTranslatedAttribute('hero')}}</p>
-        {!! Breadcrumbs::view('breadcrumbs::bootstrap5','page') !!}
-        {!! Breadcrumbs::view('breadcrumbs::json-ld','page') !!}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner text-center">
+                    <h2 class="title">{{$Page->getTranslatedAttribute('title')}}</h2>
+                    @if($Page->getTranslatedAttribute('hero'))
+                    <p class="disc">{{$Page->getTranslatedAttribute('hero')}}</p>
+                    @endif
+                    {!! Breadcrumbs::view('breadcrumbs.index','page') !!}
+                    {!! Breadcrumbs::view('breadcrumbs::json-ld','page') !!}
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="parallax-element" data-stellar-ratio="2"></div>
-</header>
+</div>
+
 @if (!(empty($Page->data())))
 @if (View::exists('modules.' . $Page->list_name))
 @include('modules.' . $Page->list_name, ['module' => $Page])
