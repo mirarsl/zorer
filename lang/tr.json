@@ -69,5 +69,8 @@
     "contact.form.message.minlength":"Lütfen daha uzun bir mesaj giriniz.",
     "contact.form.button":"Gönder",
     "contact.form.kvkk":"<a target='_blank' href='/kvkk'>Kişisel Verilerinizin İşlenmesi ve Korunması Kanunu</a> Hakkında Bilgilendirme ve Onay Formu'nu okudum ve kabul ediyorum",
-    "contact.form.kvkk.required":"Devam edebilmek için lütfen KVKK bildirimini kabul ediniz."
+    "contact.form.kvkk.required":"Devam edebilmek için lütfen KVKK bildirimini kabul ediniz.",
+    "404.title":"Aradığınız sayfa bulunamadı",
+    "404.description":"Üzgünüz, aradığınız sayfa bulunamadı. Lütfen ana sayfaya dönünüz.",
+    "404.button":"Anasayfa'ya Dön"
 }
