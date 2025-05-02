@@ -1,16 +1,16 @@
 @extends('layout.master')
 @section('modules')
-@if (isset($View) && View::exists('modules.' . $View))
-@include('modules.' . $View, ['module' => $Page])
-@endif
-@isset($Meta->modules)
-@forelse ($Meta->modules as $module)
-@if (View::exists('modules.' . $module->slug))
-@include('modules.' . $module->slug, ['module' => $module])
-@endif
-@empty
-@endforelse
-@endisset
+    @if (isset($View) && View::exists('modules.' . $View))
+        @include('modules.' . $View, ['module' => $Page])
+    @endif
+    @isset($Meta->modules)
+        @forelse ($Meta->modules as $module)
+            @if (View::exists('modules.' . $module->slug))
+                @include('modules.' . $module->slug, ['module' => $module])
+            @endif
+        @empty
+        @endforelse
+    @endisset
 @endsection
 @section('content')
 <div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg_image" @if($Meta->image) style="background-image: url({{Voyager::image($Meta->image)}})" @elseif(isset($Meta->color)) style="background-color:{{$Meta->color}}" @endif>

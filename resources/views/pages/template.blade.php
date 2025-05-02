@@ -18,27 +18,27 @@
 </div>
 
 @if (!(empty($Page->data())))
-@if (View::exists('modules.' . $Page->list_name))
-@include('modules.' . $Page->list_name, ['module' => $Page])
-@endif
+    @if (View::exists('modules.' . $Page->list_name))
+        @include('modules.' . $Page->list_name, ['module' => $Page])
+    @endif
 @elseif($Page->list_name)
-@if (View::exists('modules.' . $Page->list_name))
-@include('modules.' . $Page->list_name, ['module' => $Page])
-@endif
+    @if (View::exists('modules.' . $Page->list_name))
+        @include('modules.' . $Page->list_name, ['module' => $Page])
+    @endif
 @else
-@include('modules.details', ['module' => $Page])
+    @include('modules.details', ['module' => $Page])
 @endif
 @hasSection ('modules')
-@yield('modules')
+    @yield('modules')
 @else
-@isset($Page->modules)
-@forelse ($Page->modules as $module)
-@if (View::exists('modules.' . $module->slug))
-@include('modules.' . $module->slug, ['module' => $module])
-@endif
-@empty
-@endforelse
-@endisset
+    @isset($Page->modules)
+        @forelse ($Page->modules as $module)
+            @if (View::exists('modules.' . $module->slug))
+                @include('modules.' . $module->slug, ['module' => $module])
+            @endif
+        @empty
+        @endforelse
+    @endisset
 @endif
 @push('page_codes')
 {!! $Page->page_codes !!}
