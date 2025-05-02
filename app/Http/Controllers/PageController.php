@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
+use TCG\Voyager\Facades\Voyager;
 
 class PageController extends Controller
 {
@@ -72,6 +73,92 @@ class PageController extends Controller
         });
         
         return view("pages.template", compact("Page"));
+    }
+
+    function search(Request $request){
+        $Validator = Validator::make($request->all(),[
+            'term' => 'required|string|min:3',
+        ]);
+        if($Validator->fails()){
+            return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Lütfen arama kriterlerini kontrol ediniz.');
+        }
+        $term = $request->term;
+        $Compact = [];
+        $Page = Page::find(0);
+        $Compact['Page'] = $Page;
+        $Search = Cache::remember('search-'.$term, 3600, function() use ($term){
+            $translations = [
+                '%'.$term.'%',
+                [app()->getLocale()],
+                app()->getLocale() == 'tr' ? true:false
+            ];
+            $translationsOr = [
+                '%'.$term.'%',
+                [app()->getLocale()],
+                app()->getLocale() == 'tr' ? true:false,
+                'or'
+            ];
+            $compact = [];
+            $compact['Pages'] = Page::whereTranslation('title','LIKE', ...$translations)->whereTranslation('hero','LIKE', ...$translationsOr)->whereTranslation('text','LIKE', ...$translationsOr)->get()->except(1)->except(0)->except(66);
+            $compact['Services'] = Service::whereTranslation('title','LIKE', ...$translations)->whereTranslation('spot','LIKE', ...$translationsOr)->whereTranslation('text','LIKE', ...$translationsOr)->get();
+            $compact['News'] = News::whereTranslation('title','LIKE', ...$translations)->whereTranslation('spot','LIKE', ...$translationsOr)->whereTranslation('text','LIKE', ...$translationsOr)->get();
+            return $compact;
+        });
+        $Compact['Search'] = $Search;
+        
+        SEOTools::setTitle($Page->getTranslatedAttribute('meta_title') != '' ? $Page->getTranslatedAttribute('meta_title') : $Page->getTranslatedAttribute('title'));
+        SEOTools::setDescription($Page->getTranslatedAttribute('meta_desc'));
+        SEOMeta::addKeyword(explode(',', $Page->getTranslatedAttribute('meta_tags')));
+        SEOTools::setCanonical(url()->full());
+        SEOTools::opengraph()->setTitle(SEOTools::getTitle());
+        SEOTools::opengraph()->setUrl(url()->full());
+        if($Page->image != null){
+            SEOTools::opengraph()->addImage(url(Voyager::image($Page->image)));
+        }
+        SEOTools::opengraph()->addProperty('type', 'SearchResultsPage');
+        SEOTools::opengraph()->addProperty('locale', 'tr');
+        SEOTools::twitter()->setTitle(SEOTools::getTitle());
+        SEOTools::jsonLd()->setTitle(SEOTools::getTitle());
+        if($Page->banner != null){
+            SEOTools::jsonLd()->addImage(url(Voyager::image($Page->banner)));
+        }
+        SEOTools::jsonLd()->setType('SearchResultsPage');
+        SEOTools::jsonLd()->setDescription($Page->meta_desc);
+        
+        SEOTools::jsonLd()->addValue('query', $request->term);
+        SEOTools::jsonLd()->addValue('totalResults', $Search['Pages']->count() + $Search['Services']->count() + $Search['News']->count());
+        SEOTools::jsonLd()->addValue('searchResults', [
+            '@type' => 'ItemList',
+            'itemListElement' => $Search['Pages']->map(function($page, $index) {
+                return [
+                    '@type' => 'ListItem',
+                    'position' => $index + 1,
+                    'url' => route('page', $page->slug)
+                ];
+            })->toArray()
+        ]);
+        
+        Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page,$term) {
+            $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
+            $trail->push(__('pages.search').' - '.$term, url()->current());
+        });
+        $Compact['term'] = $term;
+        $Compact['Pages'] = [
+            'Pages' => [
+                'title' => __('pages.pages'),
+                'route' => 'page',
+            ],
+            'Services' => [
+                'title' => __('pages.products'),
+                'route' => 'product',
+            ],
+            'News' => [
+                'title' => __('pages.news'),
+                'route' => 'news',
+            ]
+        ];
+        // return $Compact['Search'];
+        return view('pages.search', $Compact);
     }
     
     function product_group(Request $request)
@@ -236,7 +323,7 @@ class PageController extends Controller
     function sitemap()
     {
         $compact = Cache::remember('sitemap', 60*60*24, function () {
-            $Page = Page::orderBy('id','asc')->get()->except(1);
+            $Page = Page::all()->except(1)->except(0)->except(66);
             $ServiceCategory = ServiceCategory::orderBy('id','asc')->get();
             $Service = Service::orderBy('id','asc')->get();
             $Tariffes = Plan::orderBy('id','asc')->get();

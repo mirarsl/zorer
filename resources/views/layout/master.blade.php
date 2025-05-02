@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{app()->currentLocale()}}">
 <head>
-	<base href="{{ url('/') }}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Cache-control" content="public">
-	
-	<link rel="canonical" href="{{ url()->full() }}" />
-	{!! SEOMeta::generate() !!}
-	{!! OpenGraph::generate() !!}
-	{!! Twitter::generate() !!}
-	{!! JsonLd::generate() !!}
-	
-	
-	<link rel="icon" href="/assets/favicon.png" type="image/x-icon"/>
-
-	<link rel="stylesheet" href="assets/css/plugins/fontawesome-5.css">
+    <base href="{{ url('/') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-control" content="public">
+    
+    <link rel="canonical" href="{{ url()->full() }}" />
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+    
+    
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon"/>
+    
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-5.css">
     <link rel="stylesheet" href="assets/css/plugins/swiper.css">
     <link rel="stylesheet" href="assets/css/plugins/aos.css">
     <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
@@ -24,13 +24,13 @@
     <link rel="stylesheet" href="assets/css/plugins/timepickers.min.css">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-	
-	@stack('links')
-	{!! setting('site.header_libs') !!}
-	@stack('styles')
+    
+    @stack('links')
+    {!! setting('site.header_libs') !!}
+    @stack('styles')
 </head>
 <body>
-	<header class="heder-two header--sticky">
+    <header class="heder-two header--sticky">
         <div class="header-two-container">
             <div class="row">
                 <div class="col-12">
@@ -85,14 +85,14 @@
             </div>
         </div>
     </header>
-	<div id="side-bar" class="side-bar header-two">
+    <div id="side-bar" class="side-bar header-two">
         <button class="close-icon-menu"><i class="far fa-times"></i></button>
         <div class="inner-main-wrapper-desk">
-			@if($sharedContent['About']->image)
+            @if($sharedContent['About']->image)
             <div class="thumbnail">
                 <img src="{{Voyager::image($sharedContent['About']->image)}}" alt="elevate">
             </div>
-			@endif
+            @endif
             <div class="inner-content">
                 @if(route('home') == url()->current())
                 <h1 class="title">{{setting('site.title')}}</h1>
@@ -110,51 +110,51 @@
             <nav class="nav-main mainmenu-nav mt--30">
                 {{ menu('Header', 'menus.header-mobile') }}
             </nav>
-
+            
             <div class="social-wrapper-one">
                 <ul>
-					@if($sharedContent['Social']->instagram)
+                    @if($sharedContent['Social']->instagram)
                     <li>
                         <a href="{{$sharedContent['Social']->instagram}}">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </li>
-					@endif
-					@if($sharedContent['Social']->facebook)
+                    @endif
+                    @if($sharedContent['Social']->facebook)
                     <li>
                         <a href="{{$sharedContent['Social']->facebook}}">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                     </li>
-					@endif
-					@if($sharedContent['Social']->twitter)
+                    @endif
+                    @if($sharedContent['Social']->twitter)
                     <li>
                         <a href="{{$sharedContent['Social']->twitter}}">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
                     </li>
-					@endif
-					@if($sharedContent['Social']->youtube)
+                    @endif
+                    @if($sharedContent['Social']->youtube)
                     <li>
                         <a href="{{$sharedContent['Social']->youtube}}">
                             <i class="fa-brands fa-youtube"></i>
                         </a>
                     </li>
-					@endif
-					@if($sharedContent['Social']->linkedin)
+                    @endif
+                    @if($sharedContent['Social']->linkedin)
                     <li>
                         <a href="{{$sharedContent['Social']->linkedin}}">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </li>
-					@endif
+                    @endif
                 </ul>
             </div>
         </div>
     </div>
-	@yield('content')
-	
-	<div class="rts-footer-two rts-section-gap2Top">
+    @yield('content')
+    
+    <div class="rts-footer-two rts-section-gap2Top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -173,38 +173,38 @@
                                 </ul>
                             </div>
                         </div>
-						{{ menu('Footer', 'menus.footer') }}
+                        {{ menu('Footer', 'menus.footer') }}
                         <div class="single-footer-wized-two user-number" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
                             <div class="user-number-wrapper mt--10">
                                 <div class="single-number">
                                     <h2 class="title">Telefon Numaramız</h2>
-									@if($sharedContent['Contact']->phone1)
+                                    @if($sharedContent['Contact']->phone1)
                                     <div class="number mb-1">
                                         <i class="fa-solid fa-phone"></i>
                                         <a href="tel:{{$sharedContent['Contact']->phone1}}">{{$sharedContent['Contact']->phone1}}</a>
                                     </div>
-									@endif
-									@if($sharedContent['Contact']->phone2)
+                                    @endif
+                                    @if($sharedContent['Contact']->phone2)
                                     <div class="number mb-1">
                                         <i class="fa-solid fa-phone"></i>
                                         <a href="tel:{{$sharedContent['Contact']->phone2}}">{{$sharedContent['Contact']->phone2}}</a>
                                     </div>
-									@endif
+                                    @endif
                                 </div>
                                 <div class="single-number">
                                     <h2 class="title">E-Posta Adresimiz</h2>
-									@if($sharedContent['Contact']->email1)
+                                    @if($sharedContent['Contact']->email1)
                                     <div class="number mb-1">
                                         <i class="fa-light fa-envelope"></i>
                                         <a href="mailto:{{$sharedContent['Contact']->email1}}">{{$sharedContent['Contact']->email1}}</a>
                                     </div>
-									@endif
-									@if($sharedContent['Contact']->email2)
+                                    @endif
+                                    @if($sharedContent['Contact']->email2)
                                     <div class="number mb-1">
                                         <i class="fa-light fa-envelope"></i>
                                         <a href="mailto:{{$sharedContent['Contact']->email2}}">{{$sharedContent['Contact']->email2}}</a>
                                     </div>
-									@endif
+                                    @endif
                                 </div>
                                 <div class="single-number">
                                     <h2 class="title">{{$sharedContent['Contact']->contact1}}</h2>
@@ -219,9 +219,9 @@
                 </div>
             </div>
         </div>
-		{{ menu('Footer Alt Bar', 'menus.footer-alt') }}
-
-
+        {{ menu('Footer Alt Bar', 'menus.footer-alt') }}
+        
+        
         <div class="copyright-area">
             <div class="container">
                 <div class="row">
@@ -232,7 +232,7 @@
                             </p>
                         </div>
                     </div>
-					<div class="col-lg-6">
+                    <div class="col-lg-6">
                         <div class="copyright-footer-two text-end">
                             <p class="disc">
                                 Made with <i style="color: var(--color-primary);" class="fa fa-heart"></i> by <a target="_blank" style="color: #f2693e" href="https://bario.com.tr">Bario.</a> 
@@ -243,126 +243,33 @@
             </div>
         </div>
     </div>
-
+    
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
             </path>
         </svg>
     </div>
-
-    <div class="cart-bar">
-        <div class="cart-header">
-            <h3 class="cart-heading">MY CART (3 ITEMS)</h3>
-            <div class="close-cart"><i class="fal fa-times"></i></div>
-        </div>
-        <div class="product-area">
-            <div class="product-item">
-                <div class="product-detail">
-                    <div class="product-thumb"><img src="assets/images/slider/image1.jpg" alt="product-thumb"></div>
-                    <div class="item-wrapper">
-                        <span class="product-name">Construct Map</span>
-                        <div class="item-wrapper">
-                            <span class="product-variation"><span class="color">Green /</span>
-                            <span class="size">XL</span></span>
-                        </div>
-                        <div class="item-wrapper">
-                            <span class="product-qnty">3 ×</span>
-                            <span class="product-price">$198.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-edit">
-                    <div class="quantity-edit">
-                        <button class="button"><i class="fal fa-minus minus"></i></button>
-                        <input type="text" class="input" value="3">
-                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                    </div>
-                    <div class="item-wrapper d-flex mr--5 align-items-center">
-                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-detail">
-                    <div class="product-thumb"><img src="assets/images/slider/image2.jpg" alt="product-thumb"></div>
-                    <div class="item-wrapper">
-                        <span class="product-name"> Bridge product</span>
-                        <div class="item-wrapper">
-                            <span class="product-variation"><span class="color">Green /</span>
-                            <span class="size">XL</span></span>
-                        </div>
-                        <div class="item-wrapper">
-                            <span class="product-qnty">2 ×</span>
-                            <span class="product-price">$88.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-edit">
-                    <div class="quantity-edit">
-                        <button class="button"><i class="fal fa-minus minus"></i></button>
-                        <input type="text" class="input" value="2">
-                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                    </div>
-                    <div class="item-wrapper d-flex mr--5 align-items-center">
-                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item last-child">
-                <div class="product-detail">
-                    <div class="product-thumb"><img src="assets/images/slider/image5.jpg" alt="product-thumb"></div>
-                    <div class="item-wrapper">
-                        <span class="product-name">Labour helmet</span>
-                        <div class="item-wrapper">
-                            <span class="product-variation"><span class="color">Green /</span>
-                            <span class="size">XL</span></span>
-                        </div>
-                        <div class="item-wrapper">
-                            <span class="product-qnty">1 ×</span>
-                            <span class="product-price">$289.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-edit">
-                    <div class="quantity-edit">
-                        <button class="button"><i class="fal fa-minus minus"></i></button>
-                        <input type="text" class="input" value="2">
-                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                    </div>
-                    <div class="item-wrapper d-flex mr--5 align-items-center">
-                        <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                        <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cart-bottom-area">
-            <span class="spend-shipping"><i class="fal fa-truck"></i> SPENT <span class="amount">$199.00</span> MORE
-            FOR FREE SHIPPING</span>
-            <span class="total-price">TOTAL: <span class="price">$556</span></span>
-            <a href="checkout.html" class="checkout-btn cart-btn">PROCEED TO CHECKOUT</a>
-            <a href="cart.html" class="view-btn cart-btn">VIEW CART</a>
-        </div>
-    </div>
-
+    
+    
     <div class="search-input-area">
         <div class="container">
-            <div class="search-input-inner">
-                <div class="input-div">
-                    <input id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
-                    <button><i class="far fa-search"></i></button>
+            <form class="w-100" action="{{route('search')}}" method="get">
+                <div class="search-input-inner">
+                    <div class="input-div">
+                        @csrf
+                        <input class="search-input" type="text" placeholder="{{__('search_placeholder')}}" name="term">
+                        <button type="submit"><i class="far fa-search"></i></button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
     </div>
-	
-
-	<div id="anywhere-home" class=""></div>
-
+    
+    
+    <div id="anywhere-home" class=""></div>
+    
     <div id="elevate-load">
         <div class="loader-wrapper">
             <div class="lds-ellipsis">
@@ -373,11 +280,11 @@
             </div>
         </div>
     </div>
-
-	@stack('modals')
-
-
-	<script src="assets/js/plugins/jquery.min.js"></script>
+    
+    @stack('modals')
+    
+    
+    <script src="assets/js/plugins/jquery.min.js"></script>
     <script src="assets/js/vendor/jqueryui.js"></script>
     <script src="assets/js/plugins/counter-up.js"></script>
     <script src="assets/js/plugins/swiper.js"></script>
@@ -398,11 +305,22 @@
     <script src="assets/js/plugins/contact-form.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/plugins/swip-img.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
-	<script>
-		lazyload();
-	</script>
-	@stack('scripts')
-	@stack('page_codes')
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
+    <script>
+        lazyload();
+    </script>
+    @if (session()->has('dialog'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            title: "{{ session('status') == 'success' ? __('success') : __('error') }}",
+            text: "{{ session('message') }}",
+            icon: "{{ session('status') }}",
+            confirmButtonText: "@lang('confirm')",
+        });
+    </script>
+    @endif
+    @stack('scripts')
+    @stack('page_codes')
 </body>
 </html>

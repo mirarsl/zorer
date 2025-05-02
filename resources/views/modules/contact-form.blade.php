@@ -123,14 +123,8 @@
     });
 </script>
 @if (session()->has('dialog'))
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    Swal.fire({
-        title: "{{ session('status') == 'success' ? __('success') : __('error') }}",
-        text: "{{ session('message') }}",
-        icon: "{{ session('status') }}",
-        confirmButtonText: "@lang('confirm')",
-    });
+    $(window).scrollTop($('#contactForm').offset().top);
 </script>
 @endif
 @endpush
