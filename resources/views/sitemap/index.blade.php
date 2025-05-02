@@ -18,26 +18,10 @@
             <priority>0.8</priority>
         </url>
     @endforeach
-    @foreach ($ServiceCategory as $serviceCategory)
-        <url>
-            <loc>{{ route('product_group', $serviceCategory->getTranslatedAttribute('slug')) }}</loc>
-            <lastmod>{{ date('Y-m-d') }}T{{date('H:i:s')}}+00:00</lastmod>
-            <changefreq>Daily</changefreq>
-            <priority>1.0</priority>
-        </url>
-    @endforeach
+
     @foreach ($Service as $service)
         <url>
             <loc>{{ route('product', $service->getTranslatedAttribute('slug')) }}</loc>
-            <lastmod>{{ date('Y-m-d') }}T{{date('H:i:s')}}+00:00</lastmod>
-            <changefreq>Daily</changefreq>
-            <priority>1.0</priority>
-        </url>
-    @endforeach
-
-    @foreach ($Tariffes as $tariff)
-        <url>
-            <loc>{{ route('tariffe', $tariff->getTranslatedAttribute('slug')) }}</loc>
             <lastmod>{{ date('Y-m-d') }}T{{date('H:i:s')}}+00:00</lastmod>
             <changefreq>Daily</changefreq>
             <priority>1.0</priority>

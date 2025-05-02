@@ -161,38 +161,6 @@ class PageController extends Controller
         return view('pages.search', $Compact);
     }
     
-    function product_group(Request $request)
-    {
-        $Page = ServiceCategory::whereTranslation('slug','=', $request->slug, [app()->getLocale()],app()->getLocale() == 'tr' ? true:false)->first();
-        if (empty($Page)) abort(404);
-        $Meta = Page::where('slug', 'urun-gruplari')->first();
-        $Route = 'product_group';
-        
-        
-        SEOTools::setTitle($Page->getTranslatedAttribute('meta_title') != '' ? $Page->getTranslatedAttribute('meta_title') : $Page->getTranslatedAttribute('title'));
-        SEOTools::setDescription($Page->getTranslatedAttribute('meta_desc'));
-        SEOMeta::addKeyword(explode(',', $Page->getTranslatedAttribute('meta_tags')));
-        SEOTools::setCanonical(url()->full());
-        SEOTools::opengraph()->setTitle(SEOTools::getTitle());
-        SEOTools::opengraph()->setUrl(url()->full());
-        if($Page->image != null){
-            SEOTools::opengraph()->addImage(url(asset($Page->image)));
-        }
-        SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::opengraph()->addProperty('locale', 'tr');
-        SEOTools::twitter()->setTitle(SEOTools::getTitle());
-        SEOTools::jsonLd()->setTitle(SEOTools::getTitle());
-        if($Page->image != null){
-            SEOTools::jsonLd()->addImage(url(asset($Page->image)));
-        }
-        
-        Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page) {
-            $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
-            $trail->push(__('pages.product_group'), route('page', __('links.product_group')));
-            $trail->push($Page->getTranslatedAttribute('title'), route('product_group', $Page->getTranslatedAttribute('slug')));
-        });
-        return view('details.product-category-details',compact('Page','Meta','Route'));
-    }
     
     function product(Request $request)
     {
@@ -324,11 +292,9 @@ class PageController extends Controller
     {
         $compact = Cache::remember('sitemap', 60*60*24, function () {
             $Page = Page::all()->except(1)->except(0)->except(66);
-            $ServiceCategory = ServiceCategory::orderBy('id','asc')->get();
-            $Service = Service::orderBy('id','asc')->get();
-            $Tariffes = Plan::orderBy('id','asc')->get();
-            $News = News::orderBy('id','asc')->get();
-            return compact('Page','ServiceCategory','Service','Tariffes','News');
+            $Service = Service::active()->order()->get();
+            $News = News::active()->order()->get();
+            return compact('Page','Service','News');
         });
         
         $content = view('sitemap.index', $compact);
