@@ -4,10 +4,10 @@
             @foreach ($module->data() as $item)
             <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-delay="{{150 * ($loop->index + 1)}}" data-sal-duration="800">
                 <div class="rts-single-service-two">
-                    <h3 class="title">
+                    <h2 class="h3 title">
                         <div class="h2 title-main"><span style="--addtional:'{{$item->addtional}}'" class="counter">{{$item->count}}</span></div>
                         {{$item->title}}
-                    </h3>
+                    </h2>
                     <p class="disc">{{$item->pretext}}</p>
                 </div>
             </div>

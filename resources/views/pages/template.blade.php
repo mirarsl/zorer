@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-inner text-center">
-                    <h2 class="title">{{$Page->getTranslatedAttribute('title')}}</h2>
+                    <h1 class="title">{{$Page->getTranslatedAttribute('title')}}</h1>
                     @if($Page->getTranslatedAttribute('hero'))
                     <p class="disc">{{$Page->getTranslatedAttribute('hero')}}</p>
                     @endif

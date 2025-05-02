@@ -13,9 +13,9 @@
                         <span class="pre-title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" style="display: block;">
                             {{ $Page->getTranslatedAttribute('title') }}
                         </span>
-                        <h3 class="title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                        <h2 class="title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
                             {{setting('site.title')}}
-                        </h3>
+                        </h2>
                     </div>
                     <div class="main-content-area-about-p">
                         {!! $Page->data()->first()->about !!}

@@ -33,7 +33,7 @@
             <div class="col-xl-7 col-lg-12">
                 <div class="appoinment-inner-content-wrapper career">
                     <span>{{$module->getTranslatedAttribute('top')}}</span>
-                    <h3 class="title">{{$module->getTranslatedAttribute('title')}}</h3>
+                    <h2 class="h3 title">{{$module->getTranslatedAttribute('title')}}</h2>
                     <form id="hrForm" action="{{route('store')}}" method="POST" enctype="multipart/form-data" class="appoinment-form mt--40">
                         @csrf
                         <input type="hidden" name="type" value="İnsan Kaynakları">
@@ -68,7 +68,6 @@
                         <button type="submit" class="rts-btn btn-primary">{{__('hr.form.button')}}</button>
                     </form>
                 </div>
-                <!-- appoinment inner content area end -->
             </div>
         </div>
     </div>
@@ -150,7 +149,7 @@
             },
             submitHandler: function(form) {
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('{{config('recaptchav3.sitekey')}}', {action: 'hr'}).then(function(token) {
+                    grecaptcha.execute('{{config('recaptchav3.sitekey')}}', {action: 'form'}).then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
                         form.submit();
                     });

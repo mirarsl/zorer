@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
-<ul class="pagination mt-5">
+<ul>
     @if (!$paginator->onFirstPage())
-    <li class="page-item"> <a class="page-link" href="{{ $paginator->currentPage() == 2 ? str_replace('?page=1','',$paginator->previousPageUrl()) : $paginator->previousPageUrl() }}">{{__('tariffe.prev')}}</a> </li>
+    <li> <a href="{{ $paginator->currentPage() == 2 ? str_replace('?page=1','',$paginator->previousPageUrl()) : $paginator->previousPageUrl() }}"><i class="fa-solid fa-chevrons-left"></i></a> </li>
     @endif
     @foreach ($elements as $element)
     @if (is_string($element))
@@ -9,15 +9,15 @@
     @if (is_array($element))
     @foreach ($element as $page => $url)
     @if ($page == $paginator->currentPage())
-    <li class="page-item"><a class="page-link active">{{ $page }}</a></li>
+    <li><a class="active">{{ $page }}</a></li>
     @else
-    <li class="page-item"><a class="page-link" href="{{ $page == 1 ? str_replace('?page=1','',$url) : $url }}">{{ $page }}</a></li>
+    <li><a href="{{ $page == 1 ? str_replace('?page=1','',$url) : $url }}">{{ $page }}</a></li>
     @endif
     @endforeach
     @endif
     @endforeach
     @if ($paginator->hasMorePages())
-    <li class="page-item"> <a class="page-link" href="{{ $paginator->nextPageUrl() }}">{{__('tariffe.next')}}</a> </li>
+    <li> <a href="{{ $paginator->nextPageUrl() }}"><i class="fa-solid fa-chevrons-right"></i></a> </li>
     @endif
   </ul>
 @endif

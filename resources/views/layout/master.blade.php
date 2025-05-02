@@ -94,7 +94,11 @@
             </div>
 			@endif
             <div class="inner-content">
+                @if(route('home') == url()->current())
                 <h1 class="title">{{setting('site.title')}}</h1>
+                @else
+                <span class="h1 title">{{setting('site.title')}}</span>
+                @endif
                 <p class="disc">{{$sharedContent['About']->short_about}}</p>
                 <div class="footer">
                     <div class="h4 title">Desteğe mi ihtiyacınız var?</div>

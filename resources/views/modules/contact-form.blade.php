@@ -1,86 +1,80 @@
-<section class="content-section">
+<div class="rts-contact-page-form-area contact-2 rts-section-gapBottom">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title text-left">
-                    <span class="h6">{{setting('site.title')}}</span>
-                    <h2>{{$Page->getTranslatedAttribute('hero')}}</h2>
-                </div>
+            @if($module->data()->iframe_url)
+            <div class="col-lg-6">
+                <iframe src="{{$module->data()->iframe_url}}" width="600" height="640" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
-            <div class="col-lg-12 mb-3">
-                <div class="contact-form">
-                    <h3>{{__('contact.form.title')}}</h3>
-                    <form id="contactForm" class="w-100" method="POST" action="{{route('store')}}">
+            @endif
+            <div class="@if($module->data()->iframe_url) col-lg-6 @else col-lg-12 @endif">
+                <div class="mian-wrapper-form">
+                    <div class="title-mid-wrapper-home-two" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                        <span class="pre">{{$module->getTranslatedAttribute('top')}}</span>
+                        <h2 class="title">{{$module->getTranslatedAttribute('title')}}</h2>
+                    </div>
+                    <form id="contactForm" action="{{route('store')}}" method="POST" class="appoinment-form mt--40">
                         @csrf
                         <input type="hidden" name="type" value="İletişim Formu">
                         <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="json[fullname]" placeholder="{{__('contact.form.fullname')}}">
-                                    <div class="error"></div>
-                                </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="json[fullname]" placeholder="{{__('contact.form.fullname')}}" required>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-half-wrapper">
+                            <div class="form-group single-input">
+                                <input type="text" name="json[phone]" placeholder="{{__('contact.form.phone')}}" required>
+                                <div class="error"></div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="json[email]" placeholder="{{__('contact.form.email')}}">
-                                    <div class="error"></div>
-                                </div>
+                            <div class="form-group single-input">
+                                <input type="email" name="json[email]" placeholder="{{__('contact.form.email')}}" required>
+                                <div class="error"></div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <select name="json[subject]" id="">
-                                        <option selected disabled>{{__('contact.form.subject')}}</option>
-                                        <option value="{{__('contact.form.subject.option1')}}">{{__('contact.form.subject.option1')}}</option>
-                                        <option value="{{__('contact.form.subject.option2')}}">{{__('contact.form.subject.option2')}}</option>
-                                        <option value="{{__('contact.form.subject.option3')}}">{{__('contact.form.subject.option3')}}</option>
-                                        <option value="{{__('contact.form.subject.option4')}}">{{__('contact.form.subject.option4')}}</option>
-                                    </select>
-                                    <div class="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea name="json[message]" placeholder="{{__('contact.form.message')}}"></textarea>
-                                    <div class="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" name="json[kvkk]" value="1" id="kvkk">
-                                    <label class="form-check-label text-white small ml-4" for="kvkk">{{__('contact.form.kvkk')}}</label>
-                                    <div class="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">    
-                                    <button class="custom-button"  type="submit">{{__('contact.form.button')}}</button>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="json[message]" placeholder="{{__('contact.form.message')}}" required=""></textarea>
+                            <div class="error"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" class="" name="json[kvkk]" value="1" id="kvkk">
+                            <label class="small ml-4" for="kvkk">{!! __('contact.form.kvkk') !!}</label>
+                            <div class="error position-relative"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="rts-btn btn-primary">{{__('contact.form.button')}}</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 {!! RecaptchaV3::initJs() !!}
 <script>
     $(document).ready(function() {
+        $.validator.addMethod("regex", function(value, element, regexp) {
+            if (regexp.constructor !== RegExp) {
+                regexp = new RegExp(regexp);
+            }
+            return this.optional(element) || regexp.test(value);
+        });
         $("#contactForm").validate({
             rules: {
                 "json[fullname]": {
                     required: true,
                     minlength: 3,
+                    regex: /^[a-zA-Z]+\s+[a-zA-Z]+$/
                 },
                 "json[email]": {
                     required: true,
                     email: true
                 },
-                "json[subject]": {
-                    required: true
+                "json[phone]": {
+                    required: true,
+                    minlength: 10,
+                    regex: /^[0-9]+$/
                 },
                 "json[message]": {
                     required: true,
@@ -99,8 +93,10 @@
                     required: "{{__('contact.form.email.required')}}",
                     email: "{{__('contact.form.email.email')}}"
                 },
-                "json[subject]": {
-                    required: "{{__('contact.form.subject.required')}}"
+                "json[phone]": {
+                    required: "{{__('contact.form.phone.required')}}",
+                    minlength: "{{__('contact.form.phone.minlength')}}",
+                    regex: "{{__('contact.form.phone.regex')}}"
                 },
                 "json[message]": {
                     required: "{{__('contact.form.message.required')}}",
@@ -117,7 +113,7 @@
             },
             submitHandler: function(form) {
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('{{config('recaptchav3.sitekey')}}', {action: 'contact'}).then(function(token) {
+                    grecaptcha.execute('{{config('recaptchav3.sitekey')}}', {action: 'form'}).then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
                         form.submit();
                     });
@@ -130,10 +126,10 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     Swal.fire({
-        title: "{{ session('status') == 'success' ? __('swal.success') : __('swal.error') }}",
+        title: "{{ session('status') == 'success' ? __('success') : __('error') }}",
         text: "{{ session('message') }}",
         icon: "{{ session('status') }}",
-        confirmButtonText: "@lang('swal.confirm')",
+        confirmButtonText: "@lang('confirm')",
     });
 </script>
 @endif

@@ -15,6 +15,7 @@ use App\Poster;
 use App\Presentation;
 use App\Project;
 use App\ProjectBlockApartment;
+use App\Search;
 use App\Service;
 use App\ServiceCategory;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -140,40 +141,6 @@ class PageController extends Controller
     }
     
     
-    function tariffes(Request $request){
-        $Meta = Page::where('slug', 'tarifler')->first();
-        
-        $Page = Plan::whereTranslation('slug','=',$request->slug, [app()->getLocale()],app()->getLocale() == 'tr' ? true:false)->first();
-        if (empty($Page)) abort(404);
-        $Route = 'tariffe';
-        
-        
-        SEOTools::setTitle($Page->getTranslatedAttribute('meta_title') != '' ? $Page->getTranslatedAttribute('meta_title') : $Page->getTranslatedAttribute('title'));
-        SEOTools::setDescription($Page->getTranslatedAttribute('meta_desc'));
-        SEOMeta::addKeyword(explode(',', $Page->getTranslatedAttribute('meta_tags')));
-        SEOTools::setCanonical(url()->full());
-        SEOTools::opengraph()->setTitle(SEOTools::getTitle());
-        SEOTools::opengraph()->setUrl(url()->full());
-        if($Page->image != null){
-            SEOTools::opengraph()->addImage(url(asset($Page->image)));
-        }
-        SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::opengraph()->addProperty('locale', 'tr');
-        SEOTools::twitter()->setTitle(SEOTools::getTitle());
-        SEOTools::jsonLd()->setTitle(SEOTools::getTitle());
-        if($Page->image != null){
-            SEOTools::jsonLd()->addImage(url(asset($Page->image)));
-        }
-        
-        Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page) {
-            $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
-            $trail->push(__('pages.tariffs'), route('page', __('links.tariffs')));
-            $trail->push($Page->getTranslatedAttribute('title'), route('tariffe', $Page->getTranslatedAttribute('slug')));
-        });
-        
-        return view('details.tariffe-details',compact('Page','Meta', 'Route'));
-    }
-    
     function news(Request $request){
         $Meta = Page::where('slug', 'haberler')->first();
         
@@ -228,7 +195,7 @@ class PageController extends Controller
             return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Formda eksik bilgi bulunmaktadır')->withErrors($validator)->withInput(request()->all());
         }
 
-        $score = RecaptchaV3::verify($request->get('g-recaptcha-response'), 'hr');
+        $score = RecaptchaV3::verify($request->get('g-recaptcha-response'), 'form');
         if($score < 0.5){
             return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Lütfen robot olmadığınızı doğrulayın');
         }
