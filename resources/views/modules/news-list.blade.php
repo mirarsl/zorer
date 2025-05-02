@@ -25,7 +25,7 @@ if(isset(request()->search)){
     <div class="container">
         <div class="row g-5">
             <div class="col-xl-8 col-md-12 col-sm-12 col-12">
-                @foreach ($news as $item)
+                @forelse ($news as $item)
                 <div class="blog-single-post-listing details mb--30">
                     <div class="thumbnail">
                         <img src="{{Voyager::image($item->image)}}" alt="{{$item->getTranslatedAttribute('title')}}">
@@ -46,7 +46,13 @@ if(isset(request()->search)){
                         <a class="rts-btn btn-primary mt--0" href="{{route('news',['slug'=>$item->getTranslatedAttribute('slug')])}}">Devamını Gör <i class="fa-light fa-arrow-right"></i></a>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-lg-12">
+                    <div class="alert alert-warning">
+                        <h2 class="title mb-0 text-muted small">{{__('news.no_news')}}</h2>
+                    </div>
+                </div>
+                @endforelse
             </div>
             <div class="col-xl-4 col-md-12 col-sm-12 col-12 pl-b-list-controler">
                 <div class="thumbnail-area-about">

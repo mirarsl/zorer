@@ -3,7 +3,7 @@
 <div class="rts-service-area rts-section-gap">
     <div class="container">
         <div class="row g-5">
-            <div class="order-1 col-xl-8 col-md-12 col-sm-12 col-12 plr_sm--20">
+            <div class="order-xl-1 order-0 col-xl-8 col-md-12 col-sm-12 col-12 plr_sm--20">
                 <div class="service-detials-step-1">
                     <div class="thumbnail">
                         <img src="{{Voyager::image($Page->image)}}" alt="{{$Page->getTranslatedAttribute('title')}}">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="order-0 col-xl-4 col-md-12 col-sm-12 col-12 sd-pad-r">
+            <div class="order-xl-0 order-1 col-xl-4 col-md-12 col-sm-12 col-12 sd-pad-r">
                 <div class="rts-single-wized Categories">
                     <div class="wized-header">
                         <h2 class="title">{{__('products.other')}}</h2>

@@ -26,7 +26,7 @@
                                 <div class="details-tag">
                                     <span class="h6 mb-0">Etiketler:</span>
                                     @foreach(explode(',',$Page->getTranslatedAttribute('tags')) as $item)
-                                    <a href="{{route('page', ['slug' => $Page->getTranslatedAttribute('slug'),'utm_code' => csrf_token(),'search'=>$item])}}">{{$item}}</a>
+                                    <a href="{{route('page', ['slug' => __('links.news'),'utm_code' => csrf_token(),'search'=>$item])}}">{{$item}}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="wized-body">
                             <div class="rts-search-wrapper">
-                                <form class="d-flex" action="{{route('page',$Page->getTranslatedAttribute('slug'))}}" method="get">
+                                <form class="d-flex" action="{{route('page',['slug' => __('links.news')])}}" method="get">
                                     <input type="hidden" name="utm_code" value="{{csrf_token()}}">
                                     <input type="text" name="search" placeholder="{{__('search_placeholder')}}" value="{{request()->search}}">
                                     <button type="submit">{{__('search_button')}}</button>
@@ -63,8 +63,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single wizered End -->
-                    <!-- single wizered start -->
                     <div class="rts-single-wized Recent-post">
                         <div class="wized-header">
                             <h2 class="h5 title">

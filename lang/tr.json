@@ -74,5 +74,6 @@
     "contact.form.kvkk.required":"Devam edebilmek için lütfen KVKK bildirimini kabul ediniz.",
     "404.title":"Aradığınız sayfa bulunamadı",
     "404.description":"Üzgünüz, aradığınız sayfa bulunamadı. Lütfen ana sayfaya dönünüz.",
-    "404.button":"Anasayfa'ya Dön"
+    "404.button":"Anasayfa'ya Dön",
+    "news.no_news":"Maalesef bu kategoride haber bulunamadı."
 }
