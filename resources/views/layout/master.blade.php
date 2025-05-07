@@ -166,6 +166,9 @@
                             <p class="disc-f">{{ $sharedContent['About']->short_about }}</p>
                             <div class="rts-social-wrapper-three">
                                 <ul>
+                                    @if ($sharedContent['Social']->instagram)
+                                    <li><a href="{{$sharedContent['Social']->instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
+                                    @endif
                                     @if ($sharedContent['Social']->facebook)
                                     <li><a href="{{$sharedContent['Social']->facebook}}"><i class="fa-brands fa-facebook-f"></i></a></li>
                                     @endif
@@ -177,9 +180,6 @@
                                     @endif
                                     @if ($sharedContent['Social']->linkedin)
                                     <li><a href="{{$sharedContent['Social']->linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    @endif
-                                    @if ($sharedContent['Social']->instagram)
-                                    <li><a href="{{$sharedContent['Social']->instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
                                     @endif
                                 </ul>
                             </div>
