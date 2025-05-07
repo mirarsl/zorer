@@ -166,10 +166,21 @@
                             <p class="disc-f">{{ $sharedContent['About']->short_about }}</p>
                             <div class="rts-social-wrapper-three">
                                 <ul>
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    @if ($sharedContent['Social']->facebook)
+                                    <li><a href="{{$sharedContent['Social']->facebook}}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    @endif
+                                    @if ($sharedContent['Social']->twitter)
+                                    <li><a href="{{$sharedContent['Social']->twitter}}"><i class="fa-brands fa-twitter"></i></a></li>
+                                    @endif
+                                    @if ($sharedContent['Social']->youtube)
+                                    <li><a href="{{$sharedContent['Social']->youtube}}"><i class="fa-brands fa-youtube"></i></a></li>
+                                    @endif
+                                    @if ($sharedContent['Social']->linkedin)
+                                    <li><a href="{{$sharedContent['Social']->linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    @endif
+                                    @if ($sharedContent['Social']->instagram)
+                                    <li><a href="{{$sharedContent['Social']->instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
