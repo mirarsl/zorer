@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\About;
 use App\Contact;
+use App\Popup;
 use App\Project;
 use App\Service;
 use App\Social;
@@ -38,11 +39,13 @@ class AppServiceProvider extends ServiceProvider
         $Contact = Contact::find(1);
         $Social = Social::find(1);
         $About = About::find(1);
+        $Popup = Popup::find(1);
 
         $sharedContent = [
             'Contact' => $Contact,
             'Social' => $Social,
-            'About' => $About
+            'About' => $About,
+            'Popup' => $Popup
         ];
         View::share("sharedContent",$sharedContent);
     }
