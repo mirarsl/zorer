@@ -469,7 +469,7 @@ ol ul {
   margin-top: 0;
 }
 
-.paragraph-area p.disc {
+.paragraph-area .disc {
   margin-bottom: 20px;
   color: #fff;
 }
@@ -15044,7 +15044,7 @@ header.header-one .header-top-wrapper .left::after {
 header.header-one .header-top-wrapper .left .icon {
   margin-right: 10px;
 }
-header.header-one .header-top-wrapper .left p.disc {
+header.header-one .header-top-wrapper .left .disc {
   font-weight: 600;
   color: #6E777D;
   font-family: var(--font-primary);
@@ -17725,22 +17725,22 @@ edit .quantity-edit button {
   }
 }
 
-.single-tab-content-one p.disc {
+.single-tab-content-one .disc {
   margin-bottom: 30px;
 }
 @media screen and (max-width: 1919px) {
-  .single-tab-content-one p.disc {
+  .single-tab-content-one .disc {
     font-size: 15px;
     margin-bottom: 10px;
   }
 }
 @media only screen and (max-width: 1199px) {
-  .single-tab-content-one p.disc {
+  .single-tab-content-one .disc {
     width: 74%;
   }
 }
 @media only screen and (max-width: 767px) {
-  .single-tab-content-one p.disc {
+  .single-tab-content-one .disc {
     width: 100%;
   }
 }
@@ -18033,7 +18033,7 @@ edit .quantity-edit button {
   }
 }
 
-.main-content-area-about-p p.disc {
+.main-content-area-about-p .disc {
   margin-bottom: 40px;
   margin-top: 40px;
 }
@@ -18372,23 +18372,23 @@ edit .quantity-edit button {
     display: none;
   }
 }
-.rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p p.disc {
+.rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p .disc {
   padding-right: 30px;
   margin-bottom: 0;
 }
 @media (max-width: 991px) and (min-width: 767px) {
-  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p p.disc {
+  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p .disc {
     margin-top: 20px;
   }
-  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p p.disc br {
+  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p .disc br {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p p.disc {
+  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p .disc {
     padding-right: 0;
   }
-  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p p.disc br {
+  .rts-about-area-about.vision .container .vision-wrapper .vision-main-wrapper .about-inner-wrapper-inner .main-content-area-about-p .disc br {
     display: none;
   }
 }
@@ -18435,14 +18435,14 @@ edit .quantity-edit button {
 .rts-about-area-about.safety .title-three-left span.pre-title {
   color: var(--color-primary);
 }
-.rts-about-area-about.safety .main-content-area-about-p p.disc:first-child {
+.rts-about-area-about.safety .main-content-area-about-p .disc:first-child {
   margin-bottom: 0;
 }
-.rts-about-area-about.safety .main-content-area-about-p p.disc:last-child {
+.rts-about-area-about.safety .main-content-area-about-p .disc:last-child {
   margin-top: 20px;
 }
 @media (max-width: 500px) {
-  .rts-about-area-about.safety .main-content-area-about-p p.disc br {
+  .rts-about-area-about.safety .main-content-area-about-p .disc br {
     display: none;
   }
 }
@@ -18645,12 +18645,12 @@ edit .quantity-edit button {
   }
 }
 
-.inner-content-ab-com p.disc {
+.inner-content-ab-com .disc {
   margin-bottom: 30px;
   width: 82%;
 }
 @media only screen and (max-width: 767px) {
-  .inner-content-ab-com p.disc {
+  .inner-content-ab-com .disc {
     width: 100%;
   }
 }
@@ -18714,7 +18714,7 @@ edit .quantity-edit button {
   }
 }
 
-.about-six-inner-wrapper p.disc {
+.about-six-inner-wrapper .disc {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -18747,7 +18747,7 @@ edit .quantity-edit button {
     line-height: 42px;
   }
 }
-.about-eight-content-main-wrapper p.disc-1 {
+.about-eight-content-main-wrapper .disc-1 {
   margin-bottom: 30px;
 }
 .about-eight-content-main-wrapper .check-area-inner {
@@ -18789,7 +18789,7 @@ edit .quantity-edit button {
 .about-eight-content-main-wrapper .mission-area .title {
   margin-bottom: 5px;
 }
-.about-eight-content-main-wrapper .mission-area p.disc {
+.about-eight-content-main-wrapper .mission-area .disc {
   width: 80%;
 }
 .about-eight-content-main-wrapper .contacta-area {
@@ -18889,7 +18889,7 @@ edit .quantity-edit button {
 }
 
 @media only screen and (max-width: 1199px) {
-  .about-eight-content-main-wrapper .mission-area p.disc {
+  .about-eight-content-main-wrapper .mission-area .disc {
     width: 100%;
     font-size: 14px;
   }
@@ -21170,13 +21170,13 @@ edit .quantity-edit button {
     display: none;
   }
 }
-.rts-banner-area-12 p.disc {
+.rts-banner-area-12 .disc {
   max-width: 50%;
   color: #fff;
   font-weight: 400;
 }
 @media only screen and (max-width: 767px) {
-  .rts-banner-area-12 p.disc {
+  .rts-banner-area-12 .disc {
     max-width: 95%;
   }
 }
@@ -21270,7 +21270,7 @@ edit .quantity-edit button {
 .banner-content-12-wrapper.with-thirteen {
   text-align: center;
 }
-.banner-content-12-wrapper.with-thirteen p.disc {
+.banner-content-12-wrapper.with-thirteen .disc {
   margin: auto;
 }
 .banner-content-12-wrapper.with-thirteen .rts-btn {
@@ -21744,7 +21744,7 @@ edit .quantity-edit button {
     line-height: 34px;
   }
 }
-.rts-single-case-three .wrapper .content p.disc {
+.rts-single-case-three .wrapper .content .disc {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
@@ -22293,7 +22293,7 @@ edit .quantity-edit button {
 .product-details-main-inner .title {
   margin-bottom: 20px;
 }
-.product-details-main-inner p.disc {
+.product-details-main-inner .disc {
   font-size: 16px;
   margin-bottom: 25px;
 }
@@ -22553,16 +22553,16 @@ edit .quantity-edit button {
     line-height: 37px;
   }
 }
-.single-varticle-product .mid-disc p.disc {
+.single-varticle-product .mid-disc .disc {
   color: #656565;
 }
 @media only screen and (max-width: 767px) {
-  .single-varticle-product .mid-disc p.disc {
+  .single-varticle-product .mid-disc .disc {
     margin-bottom: 10px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .single-varticle-product .mid-disc p.disc br {
+  .single-varticle-product .mid-disc .disc br {
     display: none;
   }
 }
@@ -22876,7 +22876,7 @@ body.index-nine .single-case-wrapper {
   content: "m";
   right: -40px;
 }
-.single-fun-facts-three p.disc {
+.single-fun-facts-three .disc {
   color: #6E777D;
 }
 
@@ -23116,7 +23116,7 @@ body.index-nine .single-case-wrapper {
   content: "m";
   right: -52px;
 }
-.single-funfacts-about p.disc {
+.single-funfacts-about .disc {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
@@ -23579,7 +23579,7 @@ body.index-nine .single-case-wrapper {
   background: #FFFFFF !important;
 }
 
-.journey-main-wrapper .inner-content p.disc {
+.journey-main-wrapper .inner-content .disc {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -24213,12 +24213,12 @@ body.index-nine .single-case-wrapper {
 .blog-single-post-listing .blog-listing-content .blog-title:hover .title {
   color: var(--color-primary);
 }
-.blog-single-post-listing .blog-listing-content p.disc {
+.blog-single-post-listing .blog-listing-content .disc {
   font-size: 16px;
   line-height: 26px;
 }
 @media only screen and (max-width: 479px) {
-  .blog-single-post-listing .blog-listing-content p.disc {
+  .blog-single-post-listing .blog-listing-content .disc {
     margin-bottom: 15px;
   }
 }
@@ -24811,7 +24811,7 @@ body.index-nine .single-case-wrapper {
     line-height: 40px;
   }
 }
-.rts-experience-area .experience-main-wrapper .left p.disc {
+.rts-experience-area .experience-main-wrapper .left .disc {
   color: #6E777D;
   font-weight: 500;
   font-size: 18px;
@@ -24819,7 +24819,7 @@ body.index-nine .single-case-wrapper {
   margin-bottom: 0;
 }
 @media (max-width: 768px) {
-  .rts-experience-area .experience-main-wrapper .left p.disc br {
+  .rts-experience-area .experience-main-wrapper .left .disc br {
     display: none;
   }
 }
@@ -25184,7 +25184,7 @@ body.index-nine .single-case-wrapper {
   margin-bottom: 20px;
   color: #fff;
 }
-.bg-appoinment-short .single-details-appoinment p.disc {
+.bg-appoinment-short .single-details-appoinment .disc {
   color: #fff;
   margin-bottom: 0;
 }
@@ -25204,10 +25204,10 @@ body.index-nine .single-case-wrapper {
     height: 250px;
   }
 }
-.bg-appoinment-short .single-details-appoinment.small p.disc {
+.bg-appoinment-short .single-details-appoinment.small .disc {
   font-size: 12px;
 }
-.bg-appoinment-short .single-details-appoinment.small p.disc br {
+.bg-appoinment-short .single-details-appoinment.small .disc br {
   display: none;
 }
 
@@ -25708,7 +25708,7 @@ body.index-nine .single-case-wrapper {
     font-size: 26px;
   }
 }
-.personal-info-team p.disc {
+.personal-info-team .disc {
   color: #6E777D;
   font-weight: 400;
   font-size: 16px;
@@ -26197,7 +26197,7 @@ body.index-nine .single-case-wrapper {
     padding: 15px;
   }
 }
-.testimonials-ten-wrapper p.disc {
+.testimonials-ten-wrapper .disc {
   margin-bottom: 30px;
 }
 .testimonials-ten-wrapper .stars-area-wrapper {
@@ -26216,7 +26216,7 @@ body.index-nine .single-case-wrapper {
   color: var(--color-primary);
   margin-right: 1px;
 }
-.testimonials-ten-wrapper .stars-area-wrapper p.disc {
+.testimonials-ten-wrapper .stars-area-wrapper .disc {
   margin-bottom: 0;
   color: #0C0A0A;
   font-weight: 500;
@@ -26341,7 +26341,7 @@ body.index-nine .single-case-wrapper {
   margin-bottom: 10px;
   color: #00000021;
 }
-.rts-service-area.career .rts-single-service-two p.disc {
+.rts-service-area.career .rts-single-service-two .disc {
   margin-bottom: 10px;
 }
 .rts-service-area.career .rts-single-service-two .loc-text {
@@ -26383,7 +26383,7 @@ body.index-nine .single-case-wrapper {
 .rts-single-service-three .content-area a .title:hover {
   color: var(--color-primary);
 }
-.rts-single-service-three .content-area p.disc {
+.rts-single-service-three .content-area .disc {
   margin-bottom: 5px;
 }
 .rts-single-service-three .content-area a.read-more-btn {
@@ -26704,10 +26704,13 @@ body.index-nine .single-case-wrapper {
 .service-detials-step-1 .title {
   margin-bottom: 16px;
 }
-.service-detials-step-1 p.disc {
+.service-detials-step-1 .disc {
   margin-bottom: 23px;
   font-size: 16px;
   line-height: 26px;
+}
+.service-detials-step-1 .disc p{
+  margin-bottom: 20px;
 }
 .service-detials-step-1 .service-details-card {
   padding: 30px;
@@ -26774,7 +26777,7 @@ body.index-nine .single-case-wrapper {
 .service-detials-step-2 .single-service-step .title {
   margin-bottom: 8px;
 }
-.service-detials-step-2 .single-service-step p.disc {
+.service-detials-step-2 .single-service-step .disc {
   font-size: 16px;
   line-height: 26px;
 }
@@ -26782,7 +26785,7 @@ body.index-nine .single-case-wrapper {
 .service-detials-step-3 .title {
   margin-bottom: 8px;
 }
-.service-detials-step-3 p.disc {
+.service-detials-step-3 .disc {
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 20px;
@@ -28713,7 +28716,7 @@ form.appoinment-form select option {
   color: #fff;
   margin-bottom: 7px;
 }
-.why-choose-style-4 p.disc-1 {
+.why-choose-style-4 .disc-1 {
   margin-bottom: 20px;
 }
 .why-choose-style-4 .inner-check {
@@ -28813,7 +28816,7 @@ form.appoinment-form select option {
   width: 100%;
 }
 
-.featurte-1stwrapper .inner-content-feature-five-wrapper p.disc {
+.featurte-1stwrapper .inner-content-feature-five-wrapper .disc {
   margin-bottom: 30px;
   width: 85%;
 }
@@ -28838,12 +28841,12 @@ form.appoinment-form select option {
 .featurte-1stwrapper .btn-group-area .user .info .title {
   margin-bottom: 0;
 }
-.featurte-1stwrapper.last .inner-content-feature-five-wrapper p.disc {
+.featurte-1stwrapper.last .inner-content-feature-five-wrapper .disc {
   margin-bottom: 30px;
   width: 100%;
 }
 @media only screen and (max-width: 1199px) {
-  .featurte-1stwrapper.last .inner-content-feature-five-wrapper p.disc {
+  .featurte-1stwrapper.last .inner-content-feature-five-wrapper .disc {
     margin-bottom: 20px;
   }
 }
@@ -29305,7 +29308,7 @@ form.appoinment-form select option {
 .rts-single-service-ten .title {
   margin-bottom: 10px;
 }
-.rts-single-service-ten p.disc {
+.rts-single-service-ten .disc {
   width: 70%;
   margin: auto;
 }
@@ -29355,7 +29358,7 @@ form.appoinment-form select option {
   line-height: 37px;
   margin-bottom: 8px;
 }
-.service-area-main-wrapper-ten .content-area-start p.disc {
+.service-area-main-wrapper-ten .content-area-start .disc {
   margin-bottom: 20px;
 }
 .service-area-main-wrapper-ten .content-area-start a.rts-btn {
@@ -29391,7 +29394,7 @@ form.appoinment-form select option {
 .more-about-company-inner .inner-content-company .img-area .content-wrapper .title {
   margin-bottom: 10px;
 }
-.more-about-company-inner .inner-content-company .img-area .content-wrapper p.disc {
+.more-about-company-inner .inner-content-company .img-area .content-wrapper .disc {
   margin-bottom: 0;
 }
 .more-about-company-inner .inner-content-company .support-area {
@@ -29491,7 +29494,7 @@ form.appoinment-form select option {
     align-items: flex-start;
   }
 }
-.mian-title-service-wrapper-11 p.disc {
+.mian-title-service-wrapper-11 .disc {
   max-width: 440px;
   margin-bottom: 0;
 }
@@ -29663,18 +29666,18 @@ form.appoinment-form select option {
     font-size: 26px;
   }
 }
-.title-main-wrapper-between-12 p.disc {
+.title-main-wrapper-between-12 .disc {
   max-width: 40%;
   margin-bottom: 0;
   color: #CACACA;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .title-main-wrapper-between-12 p.disc {
+  .title-main-wrapper-between-12 .disc {
     max-width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
-  .title-main-wrapper-between-12 p.disc {
+  .title-main-wrapper-between-12 .disc {
     max-width: 100%;
   }
 }
@@ -29706,7 +29709,7 @@ form.appoinment-form select option {
     width: 100%;
   }
 }
-.single-service-main-wrapper-12 p.disc {
+.single-service-main-wrapper-12 .disc {
   margin-bottom: 25px;
 }
 
@@ -29864,7 +29867,7 @@ form.appoinment-form select option {
   margin-bottom: 7px;
   transition: 0.3s;
 }
-.offer-main-wrapper .single-offer-area-13 p.disc {
+.offer-main-wrapper .single-offer-area-13 .disc {
   margin-bottom: 10px;
   transition: 0.3s;
 }
@@ -29878,7 +29881,7 @@ form.appoinment-form select option {
 .offer-main-wrapper .single-offer-area-13:hover .title {
   color: #fff;
 }
-.offer-main-wrapper .single-offer-area-13:hover p.disc {
+.offer-main-wrapper .single-offer-area-13:hover .disc {
   color: #fff;
 }
 .offer-main-wrapper .single-offer-area-13:hover svg path {
@@ -30052,7 +30055,7 @@ form.appoinment-form select option {
   line-height: 30px;
   margin-bottom: 0px;
 }
-.rts-clients-feedback-four p.disc {
+.rts-clients-feedback-four .disc {
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid #F1F1F1;
@@ -30292,7 +30295,7 @@ form.appoinment-form select option {
   margin-bottom: 10px;
   transition: 0.3s;
 }
-.rts-single-process-wrapper-eight p.disc {
+.rts-single-process-wrapper-eight .disc {
   margin-bottom: 0;
   transition: 0.3s;
 }
@@ -30333,7 +30336,7 @@ form.appoinment-form select option {
 .rts-single-process-wrapper-eight:hover .title {
   color: #fff;
 }
-.rts-single-process-wrapper-eight:hover p.disc {
+.rts-single-process-wrapper-eight:hover .disc {
   color: #fff;
 }
 
@@ -30827,7 +30830,7 @@ form.appoinment-form select option {
 .accordion-three .accordion-item .accordion-body {
   padding: 0;
 }
-.accordion-three .accordion-item .accordion-body p.disc {
+.accordion-three .accordion-item .accordion-body .disc {
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -32595,7 +32598,7 @@ form.appoinment-form select option {
   }
 }
 
-.infor-exp-content p.disc {
+.infor-exp-content .disc {
   width: 90%;
 }
 
@@ -32967,7 +32970,7 @@ form.appoinment-form select option {
 .main-footer-one-area .body.one {
   max-width: 283px;
 }
-.main-footer-one-area .body.one p.disc {
+.main-footer-one-area .body.one .disc {
   margin-bottom: 23px;
 }
 .main-footer-one-area .single-footer-inner .footer-title {
@@ -33282,7 +33285,7 @@ form.appoinment-form select option {
 .copyright-footer-two {
   padding: 38px 0;
 }
-.copyright-footer-two p.disc {
+.copyright-footer-two .disc {
   color: #696969;
   margin-bottom: 0;
 }
