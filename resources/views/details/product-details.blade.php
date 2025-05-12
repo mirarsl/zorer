@@ -47,7 +47,7 @@
                             </ul>
                         </div>
                     </div>
-                    @if($Page->gallery)
+                    @if($Page->gallery && count(json_decode($Page->gallery)) > 0)
                     <div class="rts-single-wized download service">
                         <div class="wized-header">
                             <h2 class="h5 title">{{__('products.catalogue')}}</h2>
