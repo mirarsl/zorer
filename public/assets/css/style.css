@@ -33696,3 +33696,6 @@ form.appoinment-form select option {
   height: 100%;
 }
 /*# sourceMappingURL=../maps/style.css.map */
+.position-sticky{
+  top:100px
+}
