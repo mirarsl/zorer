@@ -16,14 +16,14 @@
                 <div class="service-detials-step-3 mt--70 mt_md--50">
                     <div class="row g-5 align-items-center">
                         @if($Page->icon)
-                        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="thumbnail sm-thumb-service">
                                 <img src="{{Voyager::image($Page->icon)}}" alt="{{$Page->getTranslatedAttribute('title')}}">
                             </div>
                         </div>
                         @endif
                         @if ($Page->getTranslatedAttribute('table'))
-                        <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 mb_md--20 mb_sm--20">
+                        <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12 mb_md--20 mb_sm--20">
                             <h3 class="title">{{__('products.table')}}</h3>
                             <div class="table disc">
                                 {!! $Page->getTranslatedAttribute('table') !!}
