@@ -19740,7 +19740,7 @@ edit .quantity-edit button {
   clip-path: polygon(17% 0, 100% 0, 100% 100%, 18% 100%, 9% 77%);
   width: 1220px;
   height: 607px;
-  background-color: #fff;
+  background-color: #ffffffbb;
   background-image: url(../images/banner/03.webp);
 }
 @media (max-width: 1200px) {
