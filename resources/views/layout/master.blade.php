@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/css/plugins/hover-revel.css">
     <link rel="stylesheet" href="assets/css/plugins/timepickers.min.css">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?ver={{rand(1111,9999)}}">
     
     @stack('links')
     {!! setting('site.header_libs') !!}
