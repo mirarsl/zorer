@@ -31689,15 +31689,28 @@ form.appoinment-form select option {
   transition: 6s;
 }
 .single-contact-one-inner .content {
+  flex-direction: column;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 40px;
   background-color: transparent;
+  height: 100%;
+  gap: 20px;
 }
 @media (max-width: 767px) and (min-width: 576px) {
   .single-contact-one-inner .content {
     padding: 40px 15px;
   }
+}
+.single-contact-one-inner .content .h6{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+.single-contact-one-inner .content.address-content .h6{
+  font-size: 14px;
+  line-height: 18px;
 }
 .single-contact-one-inner .content .icone {
   margin-right: 20px;

@@ -43,17 +43,18 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="single-contact-one-inner">
-                    <div class="content">
+                    <div class="content address-content">
                         <div class="icone">
                             <img src="/assets/images/contact/shape/03.svg" alt="">
                         </div>
                         <div class="info">
-                            <span>{{__('contact.address')}}</span>
-                            <a href="https://maps.google.com/?q={{$sharedContent['Contact']->address1}}">
+                            <span>{{$sharedContent['Contact']->getTranslatedAttribute('contact1')}}</span>
+                            <a target="_blank" href="https://maps.google.com/?q={{$sharedContent['Contact']->address1}}">
                                 <div class="h6 mb-1">{{$sharedContent['Contact']->address1}}</div>
                             </a>
                             @if ($sharedContent['Contact']->address2)
-                            <a href="https://maps.google.com/?q={{$sharedContent['Contact']->address2}}">
+                            <span>{{$sharedContent['Contact']->getTranslatedAttribute('contact2')}}</span>
+                            <a target="_blank" href="https://maps.google.com/?q={{$sharedContent['Contact']->address2}}">
                                 <div class="h6 mb-1">{{$sharedContent['Contact']->address2}}</div>
                             </a>
                             @endif
