@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Voyager\Traits\Translatable;
 
 
 class Blog extends Model
 {
+    use Translatable;
+    protected $translatable = ['title', 'text', 'slug'];
+
     public function scopeActive($query)
     {
         return $query->where('status', 1);

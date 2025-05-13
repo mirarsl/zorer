@@ -18,10 +18,12 @@
     "pages.product_group":"Kategoriler",
     "pages.news":"Haberler",
     "pages.search":"Arama Sonuçları",
+    "pages.blogs":"Bloglar",
     "links.products":"urunler",
     "links.product_group":"urun-gruplari",
     "links.news":"haberler",
     "links.contact":"iletisim",
+    "links.blogs":"blog",
     "about.title":"Kataloğumuza Göz At",
     "about.link":"katalog",
     "about.vision":"Vizyonumuz",
@@ -75,5 +77,8 @@
     "404.title":"Aradığınız sayfa bulunamadı",
     "404.description":"Üzgünüz, aradığınız sayfa bulunamadı. Lütfen ana sayfaya dönünüz.",
     "404.button":"Anasayfa'ya Dön",
-    "news.no_news":"Maalesef bu kategoride haber bulunamadı."
+    "news.no_news":"Maalesef bu kategoride haber bulunamadı.",
+    "blogs.no_blogs":"Maalesef bu kategoride blog bulunamadı.",
+    "blogs.search":"Arama Yap",
+    "blogs.other":"Diğer Yazılarımız"
 }

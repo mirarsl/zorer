@@ -1,4 +1,4 @@
-<div class="rts-offer-provide-section rts-section-gap2Bottom">
+<div class="rts-offer-provide-section rts-section-gap bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

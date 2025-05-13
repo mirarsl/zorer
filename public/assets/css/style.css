@@ -14887,7 +14887,23 @@ body.sal-disabled [data-sal|=flip] {
 .rts-btn.btn-terciary:hover::after {
   transform: translateY(0);
 }
-
+.rts-bread-crumb-area{
+  position: relative;
+}
+.rts-bread-crumb-area::before{
+  position: absolute;
+  content: "";
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.35;
+}
+.rts-bread-crumb-area .breadcrumb-inner{
+  position: relative;
+  z-index: 1;
+}
 .btn-read-more {
   color: #FF6600;
   text-transform: uppercase;
@@ -17601,6 +17617,9 @@ edit .quantity-edit button {
 .bg-white {
   background: #fff;
 }
+.bg-light{
+  background-color: #F2F2F2;
+}
 
 .right--div {
   position: relative;
@@ -19878,7 +19897,6 @@ edit .quantity-edit button {
   font-size: 16px;
   line-height: 24px;
   color: #fff;
-  text-transform: uppercase;
   font-family: var(--font-primary);
   margin: 0 2px;
   transition: 0.3s;
@@ -24276,20 +24294,28 @@ body.index-nine .single-case-wrapper {
   margin-right: 10px;
   color: var(--color-primary);
 }
-.blog-style-four .inner-content a.main-title .title {
+.blog-style-four .inner-content a.main-title{
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid #EEEE;
   transition: 0.3s;
+  display: block;
 }
 @media only screen and (max-width: 767px) {
-  .blog-style-four .inner-content a.main-title .title {
+  .blog-style-four .inner-content a.main-title{
     margin-bottom: 15px;
     padding-bottom: 15px;
   }
 }
-.blog-style-four .inner-content a.main-title .title:hover {
+.blog-style-four .inner-content a.main-title:hover {
   color: var(--color-primary);
+}
+.blog-style-four .inner-content a.main-title p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .blog-style-four .inner-content .footer-area {
   display: flex;
@@ -24867,7 +24893,6 @@ body.index-nine .single-case-wrapper {
 .container-cta-150 {
   max-width: 1620px;
   margin: auto;
-  clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
   height: 220px;
   background: linear-gradient(-70deg, #171717 50%, #F0F1F2 50%);
 }
@@ -33695,7 +33720,6 @@ form.appoinment-form select option {
   padding: 30px 20px;
   height: 100%;
 }
-/*# sourceMappingURL=../maps/style.css.map */
 .position-sticky{
   top:100px
 }

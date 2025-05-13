@@ -1,5 +1,5 @@
 @if($module->data()->count() > 0)
-<div class="rts-blog-area rts-section-gap2">
+<div class="rts-blog-area rts-section-gap2 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

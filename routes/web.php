@@ -34,6 +34,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get(LaravelLocalization::transRoute('routes.search'), [PageController::class, 'search'])->name('search');
     Route::get(LaravelLocalization::transRoute('routes.product'), [PageController::class,'product'])->name('product');
     Route::get(LaravelLocalization::transRoute('routes.news'), [PageController::class,'news'])->name('news');
+    Route::get(LaravelLocalization::transRoute('routes.blog'), [PageController::class,'blog'])->name('blog');
     Route::get(LaravelLocalization::transRoute('routes.page'), [PageController::class,'index'])->name('page')->where('slug','.*');
 
 

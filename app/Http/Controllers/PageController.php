@@ -224,11 +224,46 @@ class PageController extends Controller
         
         Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page) {
             $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
+            $trail->push(__('pages.blogs'), route('page', __('links.blogs')));
+            $trail->push($Page->getTranslatedAttribute('title'), route('blog', $Page->getTranslatedAttribute('slug')));
+        });
+        
+        return view('details.blogs-details',compact('Page','Meta', 'Route','Other'));
+    }
+
+    function blog(Request $request){
+        $Meta = Page::where('slug', __('links.blogs'))->first();
+        
+        $Page = Blog::whereTranslation('slug','=',$request->slug, [app()->getLocale()],app()->getLocale() == 'tr' ? true:false)->first();
+        $Other = Blog::whereTranslation('slug','!=',$request->slug, [app()->getLocale()],app()->getLocale() == 'tr' ? true:false)->order()->limit(3)->get();
+        if (empty($Page)) abort(404);
+        $Route = 'blog';
+        
+        
+        SEOTools::setTitle($Page->getTranslatedAttribute('meta_title') != '' ? $Page->getTranslatedAttribute('meta_title') : $Page->getTranslatedAttribute('title'));
+        SEOTools::setDescription($Page->getTranslatedAttribute('meta_desc'));
+        SEOMeta::addKeyword(explode(',', $Page->getTranslatedAttribute('meta_tags')));
+        SEOTools::setCanonical(url()->full());
+        SEOTools::opengraph()->setTitle(SEOTools::getTitle());
+        SEOTools::opengraph()->setUrl(url()->full());
+        if($Page->image != null){
+            SEOTools::opengraph()->addImage(url(asset($Page->image)));
+        }
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::opengraph()->addProperty('locale', 'tr');
+        SEOTools::twitter()->setTitle(SEOTools::getTitle());
+        SEOTools::jsonLd()->setTitle(SEOTools::getTitle());
+        if($Page->image != null){
+            SEOTools::jsonLd()->addImage(url(asset($Page->image)));
+        }
+        
+        Breadcrumbs::for('page', function (BreadcrumbTrail $trail) use ($Page) {
+            $trail->push(__('pages.home'), '/'.(app()->getLocale() == 'tr' ? '' : app()->getLocale()));
             $trail->push(__('pages.news'), route('page', __('links.news')));
             $trail->push($Page->getTranslatedAttribute('title'), route('news', $Page->getTranslatedAttribute('slug')));
         });
         
-        return view('details.news-details',compact('Page','Meta', 'Route','Other'));
+        return view('details.blog-details',compact('Page','Meta', 'Route','Other'));
     }
     
     
