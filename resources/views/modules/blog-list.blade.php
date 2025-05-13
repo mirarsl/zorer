@@ -1,5 +1,20 @@
 @php
+use App\Search;
+$Terms = Search::active()->where('count','>',200)->where('table','blogs')->orderBy('count','desc')->limit(10)->get();
 if(isset(request()->search)){
+    if(!session()->has('utm_code') || session()->get('utm_code') != request()->utm_code.'-'.request()->search){
+        if(Search::where('term',request()->search)->where('table','blogs')->exists()){
+            $term = Search::active()->where('term',request()->search)->where('table','blogs')->first();
+            $term->count++;
+            $term->save();
+        }else{
+            $term = new Search();
+            $term->table = 'blogs';
+            $term->term = request()->search;
+            $term->count = 1;
+            $term->save();
+        }
+    }
     $blogs = $Page->data(12,request()->search);
     session()->put('utm_code',request()->utm_code.'-'.request()->search);
 }else{

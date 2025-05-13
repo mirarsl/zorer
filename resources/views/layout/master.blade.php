@@ -273,6 +273,13 @@
                     </div>
                 </div>
             </form>
+            <div class="search-results">
+                <ul class="list-unstyled d-flex flex-wrap gap-2 justify-content-center">
+                    @foreach($sharedContent['Search'] as $search)
+                    <li><a href="{{route('search',['term'=>$search->term,'_token'=>csrf_token()])}}">{{$search->term}}</a></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
         <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
     </div>

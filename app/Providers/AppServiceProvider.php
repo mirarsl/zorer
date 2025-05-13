@@ -6,6 +6,7 @@ use App\About;
 use App\Contact;
 use App\Popup;
 use App\Project;
+use App\Search;
 use App\Service;
 use App\Social;
 use Carbon\Carbon;
@@ -40,12 +41,14 @@ class AppServiceProvider extends ServiceProvider
         $Social = Social::find(1);
         $About = About::find(1);
         $Popup = Popup::find(1);
+        $Search = Search::active()->orderBy('count','desc')->limit(10)->get();
 
         $sharedContent = [
             'Contact' => $Contact,
             'Social' => $Social,
             'About' => $About,
-            'Popup' => $Popup
+            'Popup' => $Popup,
+            'Search' => $Search
         ];
         View::share("sharedContent",$sharedContent);
     }

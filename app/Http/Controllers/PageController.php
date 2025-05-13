@@ -83,6 +83,20 @@ class PageController extends Controller
             return redirect()->to(url()->previous())->with('dialog', '1')->with('status', 'error')->with('message', 'Lütfen arama kriterlerini kontrol ediniz.');
         }
         $term = $request->term;
+
+        if(Search::where('term',$term)->exists()){
+            $search = Search::active()->where('term',$term)->first();
+            if($search){
+                $search->count++;
+                $search->save();
+            }
+        }else{
+            $search = new Search();
+            $search->table = 'all';
+            $search->term = $term;
+            $search->count = 1;
+            $search->save();
+        }
         $Compact = [];
         $Page = Page::find(0);
         $Compact['Page'] = $Page;

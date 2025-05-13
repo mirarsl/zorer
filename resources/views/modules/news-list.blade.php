@@ -1,10 +1,10 @@
 @php
 use App\Search;
-$Terms = Search::where('count','>',200)->where('table','news')->orderBy('count','desc')->limit(10)->get();
+$Terms = Search::active()->where('count','>',200)->where('table','news')->orderBy('count','desc')->limit(10)->get();
 if(isset(request()->search)){
     if(!session()->has('utm_code') || session()->get('utm_code') != request()->utm_code.'-'.request()->search){
         if(Search::where('term',request()->search)->where('table','news')->exists()){
-            $term = Search::where('term',request()->search)->where('table','news')->first();
+            $term = Search::active()->where('term',request()->search)->where('table','news')->first();
             $term->count++;
             $term->save();
         }else{
