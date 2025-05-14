@@ -343,7 +343,8 @@ class PageController extends Controller
             $Page = Page::all()->except(1)->except(0)->except(66);
             $Service = Service::active()->order()->get();
             $News = News::active()->order()->get();
-            return compact('Page','Service','News');
+            $Blogs = Blog::active()->order()->get();
+            return compact('Page','Service','News','Blogs');
         });
         
         $content = view('sitemap.index', $compact);
