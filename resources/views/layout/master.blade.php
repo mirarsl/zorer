@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-control" content="public">
+    <meta name="google-site-verification" content="XTkYTPF898JH3nBICCEolHRa8uF5uYaw9X-3fyZXEBc" />
     
     <link rel="canonical" href="{{ url()->full() }}" />
     {!! SEOMeta::generate() !!}
