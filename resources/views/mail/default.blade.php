@@ -21,7 +21,7 @@
                   <tr>
                     <td align="center">
                       <a href="#" class="change_link">
-                        <img onerror="src='/img/empty.jpg'"  src="{{asset(url('/').'/storage\/'.setting('site.logo'))}}" border="0" style="display: block;" class="reset" width="150px">
+                        <img onerror="src='/img/empty.jpg'"  src="{{asset(url('/').'/assets/logo.png')}}" border="0" style="display: block;" class="reset" width="150px">
                       </a>
                     </td>
                   </tr>
