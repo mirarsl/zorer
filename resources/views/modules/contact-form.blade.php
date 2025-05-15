@@ -88,6 +88,7 @@
                 "json[fullname]": {
                     required: "{{__('contact.form.fullname.required')}}",
                     minlength: "{{__('contact.form.fullname.minlength')}}",
+                    regex: "{{__('contact.form.fullname.regex')}}"
                 },
                 "json[email]": {
                     required: "{{__('contact.form.email.required')}}",
