@@ -242,7 +242,7 @@ class PageController extends Controller
             $trail->push($Page->getTranslatedAttribute('title'), route('blog', $Page->getTranslatedAttribute('slug')));
         });
         
-        return view('details.blog-details',compact('Page','Meta', 'Route','Other'));
+        return view('details.news-details',compact('Page','Meta', 'Route','Other'));
     }
 
     function blog(Request $request){
